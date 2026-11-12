@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+# Python environments
+.venv/
+venv/
+transformer-env/
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
