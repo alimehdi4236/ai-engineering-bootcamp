@@ -1,0 +1,13 @@
+numpy
+sentence-transformers
+faiss-cpu
+pinecone
+python-dotenv
+
+
+#Install these above libraries using 
+#pip install -r requirements.txt
+
+
+
+# peace :)
