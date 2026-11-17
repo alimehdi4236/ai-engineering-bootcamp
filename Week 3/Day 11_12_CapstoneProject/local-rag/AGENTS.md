@@ -25,6 +25,19 @@ grounded in retrieved document evidence.
 - pipeline.py: Connect retrieval and generation
 - benchmark.py: Compare at least two models
 
+## Current project structure
+- documents/: Source PDF documents.
+- src/local_rag/: Python package directory.
+- benchmark.py: Initial local model benchmark.
+- test_api.py: Ollama API verification.
+- benchmark_results.json: Saved initial benchmark results.
+- decision_log.md: Student-maintained experiment notes and decisions.
+- README.md: Project documentation.
+- pyproject.toml: Project configuration and dependencies.
+- uv.lock: Locked dependency versions.
+
+New pipeline components will be added as development progresses.
+
 ## Development rules
 1. Work one stage at a time.
 2. Run and verify each stage before proceeding.
@@ -45,23 +58,34 @@ grounded in retrieved document evidence.
 - pipeline_outputs.json
 - decision_log.md
 - README.md
+- AGENTS.md
 
 ## Execution
-Run Python scripts through:
+Run commands from the project root.
+Use uv to run Python scripts:
 
 uv run python <script_name>.py
 
-Rebuild the vector database by running:
+Verify the Ollama API:
 
-uv run python ingest.py
+uv run python test_api.py
 
-Run the end-to-end pipeline using:
-
-uv run python pipeline.py
-
-Run model comparisons using:
+Run the initial model benchmark:
 
 uv run python benchmark.py
+
+As the pipeline scripts are implemented, run the relevant stages:
+
+uv run python ingest.py
+uv run python retrieve.py
+uv run python generate.py
+uv run python pipeline.py
+
+Run model comparisons:
+
+uv run python benchmark.py
+
+Only run a command after its corresponding script has been created.
 
 ## Validation
 - Check extracted PDF text before chunking.

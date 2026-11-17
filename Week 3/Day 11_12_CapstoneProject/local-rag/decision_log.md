@@ -67,3 +67,6 @@ Result with layout mode: layout-aware extraction improved visual alignment but s
 uv run --no-sync python -c "from pathlib import Path; from pypdf import PdfReader; p=Path('documents/security_policy.pdf'); r=PdfReader(str(p)); print(r.pages[2].extract_text())"
 ##### Command for Layout Extraction:
 uv run --no-sync python -c "from pathlib import Path; from pypdf import PdfReader; p=Path('documents/security_policy.pdf'); r=PdfReader(str(p)); print(r.pages[2].extract_text(extraction_mode='layout'))"
+
+### Decision for Pdf Extraction mode:
+I am using pypdf with extraction_mode="layout" as the initial extraction strategy because it improved the readability of financial table and it provides useful spatial information. But still even with that it alone cannot guarantee reliable table reconstruction. I would later source metadata and validate important table info during ingestion and retrieval test.
