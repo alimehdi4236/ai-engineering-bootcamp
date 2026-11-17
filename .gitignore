@@ -8,5 +8,13 @@ transformer-env/
 __pycache__/
 *.py[cod]
 
+# Local RAG project
+chroma_db/
+*.gguf
+
+# Generated outputs and temporary files
+__pycache__/
+*.py[cod]
+
 # Jupyter
 .ipynb_checkpoints/
