@@ -70,3 +70,25 @@ uv run --no-sync python -c "from pathlib import Path; from pypdf import PdfReade
 
 ### Decision for Pdf Extraction mode:
 I am using pypdf with extraction_mode="layout" as the initial extraction strategy because it improved the readability of financial table and it provides useful spatial information. But still even with that it alone cannot guarantee reliable table reconstruction. I would later source metadata and validate important table info during ingestion and retrieval test.
+
+### Retrieval Tests
+#### Experiment testing 1
+I did 4 tests and from the architecture side what it does it converts the question into an embedding using nomic-embed-text and then it searches the ChromaDB vectors after that it find the five most semantically relevant document chunks and returns the text, document name, page number and similarity distance
+
+**1st test**: From the first test I asked: How many days of annual leave do employees receive?
+**results**: retriever found the correct answer in Result 1, from company_handbook.pdf, page 5 and also the Result 2 was relevant as it also searches the same pdf but the rest was irrelevant.
+
+**2nd test**: for second test i asked: What encryption requirements apply to confidential data?
+**results**: retriever found the relevant security policy like these 
+Encryption at rest: AES-256. Encryption in transit: TLS 1.3. Encryption keys rotated every 90 days. so from those Results 3, 4 and 5 provide useful evidence
+
+**3rd test**: for thrid test I asked: What are the main features of NovaTech ProjectHub?
+**results**: it retrieved correct product guide first from Result 1. However, the retrieved chunk first describes the product's overview and supported methodologies. We should inspect the product-guide sections if we want a complete feature answer. Result 2 3 were slightly relevant but not the main features completely.
+
+**4th test**: for fourth test the main qoal was to ask something which is unanswerable and the question was: What is the company's employee bonus payment date?
+**results**: its the interesting one. The system returned unrelated chunks instead of recognizing that it had no reliable evidence. But as we know this is expected with basic vector retrieval: ChromaDB always returns the closest matches when asked for five results, even if none is genuinely relevant.
+
+### Improvement Direction
+
+For an initial experiment we'll use MAX_DISTANCE = 0.35 in main retrieve.py script as a provisional cutoff. We'll tune it using more test questions.
+For example, the bonus question's first result has distance 0.3710 so it would be filtered out
