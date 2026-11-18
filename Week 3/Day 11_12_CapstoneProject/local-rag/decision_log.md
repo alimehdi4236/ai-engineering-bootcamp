@@ -135,3 +135,21 @@ For this test I used qwen3.5:4b-q4_K_M with a temperature of 0.1 and the reason 
 In the begining model used generic references like Source 1 and Source 2 inside its answer. Then I improved the system prompt in generate.py by instructing the model to cite the exact PDF filename and page number and not to use generic source references. After this change the model generated citations in the required format making the answers easier to verify against the original documents.
 
 **Conclusion for generation**: The initial generation tests shows that the local Qwen 4B model can produce useful document-based answers when its provided with relevant evidence. But these are only initial manual tests, and the complete pipeline will need further evaluation using the full test-question set.
+
+### End-to-End Pipeline Tests 
+
+#### Experiment testing 1
+
+After completing the ingestion, retrieval and generation I created pipeline.py to connect everything into one complete RAG workflow. The idea was to test whether the system could take a user question retrieve relevant document chunks, generate an answer using the local LLM and return the answer together with its source information.
+Pipeline uses the existing retrieve.py and generate.py functions instead of duplicating their logic and pasting the whole code into one single script. For these tests I continued using the local model qwen3.5:4b-q4_K_M.
+
+**1st test**: I asked: How many days of annual leave do employees receive in the company?
+
+**results**: The pipeline correctly retrieved the relevant information from company_handbook.pdf, page 5 and the model generated correct answer that all full-time employees receive twenty-five (25) days of paid time off per calendar year, in addition to public holidays. It also correctly mentioned that part-time employees receive PTO on a pro-rata basis. Retriever returned 2 relevant chunks with distances of 0.2367 and 0.2840 and completed the response successfully with finish_reason=stop.
+
+**2nd test**: For the second test I asked: What is the company's employee bonus payment date and how much is it?
+
+**results**: It was an unanswerable question and the complete pipeline returned an insufficient-evidence response. No relevant chunks passed the retrieval threshold so the LLM was not called and no sources were returned. The system didnt invent a bonus payment date or amount. The finish_reason was None because generation got skipped.
+
+**Conclusion for Orchestration Pipeline**:
+The end-to-end pipeline successfully connected all the previously developed components into one workflow. Both tests behaved as expected and it confirms that initial local RAG pipeline is working end to end but further testing with the complete test-question set is still required to evaluate retrieval quality and answer accuracy as well as overall performance.
