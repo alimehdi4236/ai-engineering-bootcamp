@@ -92,3 +92,20 @@ Encryption at rest: AES-256. Encryption in transit: TLS 1.3. Encryption keys rot
 
 For an initial experiment we'll use MAX_DISTANCE = 0.35 in main retrieve.py script as a provisional cutoff. We'll tune it using more test questions.
 For example, the bonus question's first result has distance 0.3710 so it would be filtered out
+### Retrieval Tests After Improvement with thresold
+So now the difference happened when we applied thresold filter while it converts the questions into 768 vector embeddings and after searching the ChromaDB retrieves five closest chunks after applying the MAX_DISTANCE = 0.35 threshold the retrieval results became more controlled. The annual leave question returned 2 relevant chunks instead of 5 and the encryption and ProjectHub questions still returned 5 chunks and the unanswerable bonus question returned 0 chunks. The threshold was a useful first improvement but it still needs further testing with the complete test Here below is the complete testing result:
+
+#### Experiment testing 1
+**1st test**: I repeated the first question from previous tests: How many days of annual leave do employees receive?
+**results**: After applying the threshold of 0.35, the retriever returned 2 chunks instead of 5. Both results came from company_handbook.pdf page 5. Result 1 contained the exact answer of 25 days of paid time off while Result 2 also contained relevant information about sick leave and PTO requests. The irrelevant results were successfully filtered out.
+
+**2nd test**: I repeated the second question: What encryption requirements apply to confidential data?
+**results**: The retriever gave output 5 chunks because all of them had a distance below 0.35. The results from security_policy.pdf had the relevant encryption requirements, including AES-256 encryption at rest, TLS 1.3 for data in transit and automatic encryption key rotation every 90 days. The threshold did not remove any of the useful evidence in this test.
+
+**3rd test**: I again asked the third question: What are the main features of NovaTech ProjectHub?
+
+**results**: The retriever gave 5 chunks because all results were within the selected threshold. Result 1 from product_guide.pdf was still the most relevant result which describes the ProjectHub overview and support methodologies. Other results also contained some related information but not all of them directly answered the question. So threshold improved filtering in some cases but it did not completely remove every less relevant chunk in this
+
+**4th test**: asked the same unanswerable question: What is the company's employee bonus payment date?
+
+**results**: This time the retriever returned 0 chunks because none of the five results passed the maximum distance threshold of 0.35. That is the behaviour we wanted because the system no longer returns unrelated document chunks when it cant find sufficient similar evidence. However it doesnt prove that the information is absent from all five PDFs. It only meant that no retrieved chunk passed my current threshold.
