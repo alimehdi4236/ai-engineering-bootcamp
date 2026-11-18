@@ -88,14 +88,14 @@ Encryption at rest: AES-256. Encryption in transit: TLS 1.3. Encryption keys rot
 **4th test**: for fourth test the main qoal was to ask something which is unanswerable and the question was: What is the company's employee bonus payment date?
 **results**: its the interesting one. The system returned unrelated chunks instead of recognizing that it had no reliable evidence. But as we know this is expected with basic vector retrieval: ChromaDB always returns the closest matches when asked for five results, even if none is genuinely relevant.
 
-### Improvement Direction
+#### Improvement Direction
 
 For an initial experiment we'll use MAX_DISTANCE = 0.35 in main retrieve.py script as a provisional cutoff. We'll tune it using more test questions.
 For example, the bonus question's first result has distance 0.3710 so it would be filtered out
-### Retrieval Tests After Improvement with thresold
+#### Retrieval Tests After Improvement with thresold
 So now the difference happened when we applied thresold filter while it converts the questions into 768 vector embeddings and after searching the ChromaDB retrieves five closest chunks after applying the MAX_DISTANCE = 0.35 threshold the retrieval results became more controlled. The annual leave question returned 2 relevant chunks instead of 5 and the encryption and ProjectHub questions still returned 5 chunks and the unanswerable bonus question returned 0 chunks. The threshold was a useful first improvement but it still needs further testing with the complete test Here below is the complete testing result:
 
-#### Experiment testing 1
+#### Experiment retrieval testing
 **1st test**: I repeated the first question from previous tests: How many days of annual leave do employees receive?
 **results**: After applying the threshold of 0.35, the retriever returned 2 chunks instead of 5. Both results came from company_handbook.pdf page 5. Result 1 contained the exact answer of 25 days of paid time off while Result 2 also contained relevant information about sick leave and PTO requests. The irrelevant results were successfully filtered out.
 
@@ -109,3 +109,29 @@ So now the difference happened when we applied thresold filter while it converts
 **4th test**: asked the same unanswerable question: What is the company's employee bonus payment date?
 
 **results**: This time the retriever returned 0 chunks because none of the five results passed the maximum distance threshold of 0.35. That is the behaviour we wanted because the system no longer returns unrelated document chunks when it cant find sufficient similar evidence. However it doesnt prove that the information is absent from all five PDFs. It only meant that no retrieved chunk passed my current threshold.
+
+### Generation Test
+#### Experiment testing
+
+After completing the retrieval stage I created generate.py to connect the retrieved document chunks with local LLM. The main task was to generate answers based only on the retrieved evidence which includes source citations and avoid making up stuff when the documents do not contain an answer.
+For this test I used qwen3.5:4b-q4_K_M with a temperature of 0.1 and the reason to choose this temperature value because it is more suitable for our rag since priority is factual accuracy and consistency. 
+
+**1st test**: I asked: How many days of annual leave do employees receive?
+
+**results**: The model generated the correct answer that all full-time employees receive twenty-five (25) days of paid time off per calendar year. It also correctly mentioned that part-time employees receive PTO on a pro-rata basis. The answer was suitable and supported by company_handbook.pdf, page 5 and model finished successfully with finish_reason=stop.
+
+**2nd test**: For second test I asked: What is the company's employee bonus payment date?
+
+**results**: I asked this question which was intentionally unanswerable because the retrieval stage didnt find any relevant chunks within the selected distance threshold. The system returned an insufficient-evidence message instead of sending the question to the LLM. Its important because it prevents the model from inventing a bonus payment date. No sources were returned and the finish_reason was None because generation got skipped
+
+**3rd test**: In third test I asked: What encryption requirements apply to confidential data?
+
+**results**: The model correctly explained that confidential data must be encrypted at rest using AES-256 or an equivalent approved algorithm and that data transmitted across networks must use TLS 1.3. It also mentioned that encryption keys are managed through a centralized KMS with automatic rotation every 90 days. The answer supports by security_policy.pdf, pages 3, 8 and 9 and it completed the response with finish_reason=stop.
+
+**4th test**: For fourth test the question was: What are the main features of NovaTech ProjectHub?
+
+**results**: It generated a detailed answer covering the supported project management methodologies, sharing analytics dashboard, dashboard customization, data scope, sharing and export options. It correctly used product_guide.pdf pages 2 and 9 as the main sources. It also mentioned that NovaTech Copilot is still in the design phase and is not yet a current feature using quarterly_report_q1_2026.pdf, page 6 as supporting evidence.
+
+In the begining model used generic references like Source 1 and Source 2 inside its answer. Then I improved the system prompt in generate.py by instructing the model to cite the exact PDF filename and page number and not to use generic source references. After this change the model generated citations in the required format making the answers easier to verify against the original documents.
+
+**Conclusion for generation**: The initial generation tests shows that the local Qwen 4B model can produce useful document-based answers when its provided with relevant evidence. But these are only initial manual tests, and the complete pipeline will need further evaluation using the full test-question set.
