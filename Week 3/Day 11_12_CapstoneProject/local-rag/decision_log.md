@@ -71,6 +71,26 @@ uv run --no-sync python -c "from pathlib import Path; from pypdf import PdfReade
 ### Decision for Pdf Extraction mode:
 I am using pypdf with extraction_mode="layout" as the initial extraction strategy because it improved the readability of financial table and it provides useful spatial information. But still even with that it alone cannot guarantee reliable table reconstruction. I would later source metadata and validate important table info during ingestion and retrieval test.
 
+### Ingestion Configuration Decisions:
+#### Embedding Model (nomic-embed-text) and Vector Database:
+I selected nomic-embed-text as the local embedding model for initial RAG implementation. I used this local embedding model because project required a local RAG pipeline and we wanted to avoid sending document content to an external embedding API. I did not conduct a comparative benchmark of multiple embedding models but for future I would be considering it an initial choice rather than a proven optimal model.
+
+#### Vector database: ChromaDB
+I used ChromaDB as the vector database because the project is designed as a local RAG application and it allows to store the document embeddings together with their associated text and metadata allowing the retriever to return the original chunk, source filename and page information. Our project uses a ChromaDB collection named novatech_documents which allows the indexed document data to remain available between application runs instead of requiring the documents to be embedded again for every question.
+
+#### Similarity metric
+
+My retrieval implementation uses cosine distance to compare the question embedding with stored document-chunk embeddings.
+A lower cosine distance usually indicates that two vectors are more similar which is important because the retrieval threshold is based on distance and how it is: chunks with a distance greater than the configured maximum are filtered out means they are cut.
+
+#### Chunking Strategy
+The current implementation uses the following configuration:
+- Chunk size: 1,000 characters.
+- Chunk overlap: 150 characters.
+- Ingestion batch size: 32.
+The reason for using chunks is that embedding and retrieving entire PDF documents would make it difficult to identify specific passages relevant to an individual question. Smaller chunks allow the retriever to identify more focused pieces of evidence.
+The 150-character overlap preserves some context between neighbouring chunks and without it information located near the end of one chunk and the beginning of the next could will become separate during retrieval. The batch size of 32 controls how many chunks are processed together during ingestion and important fact these values were used as the initial implementation configuration. I didnt conduct a separate controlled experiment comparing multiple chunk sizes or overlap values so I cannot claim that 1000 characters and 150 characters are the optimal settings.
+
 ### Retrieval Tests
 #### Experiment testing 1
 I did 4 tests and from the architecture side what it does it converts the question into an embedding using nomic-embed-text and then it searches the ChromaDB vectors after that it find the five most semantically relevant document chunks and returns the text, document name, page number and similarity distance
@@ -90,8 +110,27 @@ Encryption at rest: AES-256. Encryption in transit: TLS 1.3. Encryption keys rot
 
 #### Improvement Direction
 
-For an initial experiment we'll use MAX_DISTANCE = 0.35 in main retrieve.py script as a provisional cutoff. We'll tune it using more test questions.
-For example, the bonus question's first result has distance 0.3710 so it would be filtered out
+For an initial experiment we'll use MAX_DISTANCE = 0.35 in main retrieve.py script as a provisional cutoff. We'll tune it using more test questions. For example, the bonus question's first result has distance 0.3710 so it would be filtered out
+
+### Retrieval Configuration: TOP_K and MAX_DISTANCE
+The initial retrieval configuration uses:
+
+- TOP_K = 5
+- MAX_DISTANCE = 0.35
+
+Why TOP_K = 5?
+I selected 5 as the initial retrieval candidate limit which provides the generator with several relevant passages instead of relying on only one retrieved chunk. It is particularly useful for questions that require information from multiple sections or documents. But the catch is, retrieving more chunks does not automatically improve answer quality. Additional chunks can contain unrelated information.
+
+Why MAX_DISTANCE = 0.35 
+
+The vector search uses cosine distance to measure the difference between the question embedding and each document-chunk embedding so here the maximum distance threshold acts as a relevance filter in which:
+
+- A chunk with distance less than or equal to 0.35 is remained.
+- A chunk with distance greater than 0.35 is removed.
+
+In here a distance of 0.35 does not mean that the system is 35% confident in the answer. It is simply the cutoff used by my retrieval implementation. The annual-leave question returned two relevant chunks after filtering while the encryption and ProjectHub questions still returned five chunks in the test. The unanswerable bonus-payment question returned no chunks because its retrieved results did not pass the threshold. But important to note that the threshold also introduced a trade-off like for example a relevant chunk could be removed if its distance was slightly above the selected cutoff. This is demonstrated in the later Q07 evaluation test experiment.
+
+
 #### Retrieval Tests After Improvement with thresold
 So now the difference happened when we applied thresold filter while it converts the questions into 768 vector embeddings and after searching the ChromaDB retrieves five closest chunks after applying the MAX_DISTANCE = 0.35 threshold the retrieval results became more controlled. The annual leave question returned 2 relevant chunks instead of 5 and the encryption and ProjectHub questions still returned 5 chunks and the unanswerable bonus question returned 0 chunks. The threshold was a useful first improvement but it still needs further testing with the complete test Here below is the complete testing result:
 
@@ -153,3 +192,143 @@ Pipeline uses the existing retrieve.py and generate.py functions instead of dupl
 
 **Conclusion for Orchestration Pipeline**:
 The end-to-end pipeline successfully connected all the previously developed components into one workflow. Both tests behaved as expected and it confirms that initial local RAG pipeline is working end to end but further testing with the complete test-question set is still required to evaluate retrieval quality and answer accuracy as well as overall performance.
+
+### Retrieval Threshold Experiment 
+#### For Q07 -
+
+**Baseline configuration:**
+- TOP_K: 5
+- MAX_DISTANCE: 0.35
+
+**Problem observed:**
+The expected proof was present in raw top-five retrieval results but the relevant chunk from company_handbook.pdf, page 6, had a cosine distance of 0.36455 and got removed by the 0.35 threshold which i selected.
+
+**Experimental configuration:**
+- TOP_K: 5
+- MAX_DISTANCE: 0.37
+
+**Observed result:**
+The page 6 chunk survived filtering and the generated answer correctly identified the 30-calendar-day submission deadline and the consequences of late submissions.
+
+#### For Q11 -
+**Query wording and retrieval sensitivity**
+
+The original question retrieved the quarterly report's employee count (412) but got failed to retrieve the handbook chunk containing the approximate employee count (400). I increased the distance threshold to 10 did not solve the issue but also increased time to process because the relevant chunk was outside the top five results.
+I did reformulate in a simple way again asking for both employee counts then it retrieved the relevant handbook and quarterly report chunks. The model then generated the correct answer with citations to handbook page 1 and quarterly report page 8.
+
+**Observation:** Retrieval quality is sensitive to query wording. A simpler question can produce better document coverage than a more complex one.
+
+### Final Retrieval Configuration and Decision
+
+After the initial retrieval experiments and the Q07 and Q11 investigations the final retrieval configuration used for the full evaluation was:
+
+| Parameter | Final value |
+|---|---|
+| Embedding model | nomic-embed-text |
+| Vector database | ChromaDB |
+| Collection | novatech_documents |
+| Similarity metric | Cosine distance |
+| TOP_K | 5 |
+| MAX_DISTANCE | 0.37 |
+| Chunk size | 1,000 characters |
+| Chunk overlap | 150 characters |
+
+**Why was MAX_DISTANCE changed from 0.35 to 0.37?**
+
+The main reason was the Q07 retrieval experiment. With the original threshold of 0.35, the relevant chunk from company_handbook.pdf, page 6, had a cosine distance of 0.36455. Even we observed that this chunk contained the expected evidence about the expense-submission deadline it was removed because its distance exceeded the configured threshold. Then I increased the threshold to 0.37 while keeping TOP_K at 5 and finally then with this configuration the relevant page 6 chunk passed the filter and the generated answer correctly identified the 30-calendar-day submission deadline and the consequences of late submissions.
+
+**Why I did not increase the threshold further?**
+
+In the Q11 experiment showed that increasing the threshold alone didnt solve every retrieval problem. The original comparative question failed to retrieve the handbook chunk containing the approximate employee count so here increasing the threshold to 10 did not solve the problem because the relevant chunk was outside the top-five candidate results. Remaking the question produced better retrieval results without increasing TOP_K. Thats why the final threshold of 0.37 was selected based on the observed Q07 improvement and selected configuration based on the experiments performed while keeping the initial TOP_K value of 5.
+
+## Full RAG Pipeline Evaluation
+
+#### Evaluation Dataset
+
+After the initial component tests and retrieval experiments i evaluated the complete RAG pipeline using a dataset of 20 questions.
+
+The dataset contains four categories:
+
+- Direct factual questions.
+- Detailed questions.
+- Cross-document questions.
+- Unanswerable questions.
+
+The questions were designed to test different areas of the pipeline, including factual retrieval, multi-part answers, information from multiple documents and the ability to refuse questions when the documents do not contain sufficient information and having no clues.
+
+#### Execution Results
+
+The final evaluation output recorded:
+
+| Metric | Result |
+|---|---:|
+| Total questions | 20 |
+| Successful pipeline runs | 20 |
+| Failed pipeline runs | 0 |
+| Manually evaluated passed answers | 16 |
+| Manually evaluated failed answers | 4 |
+| Answer pass rate | 80% |
+
+I calculated the answer pass rate using the manually completed passed fields in `pipeline_outputs.json`.
+
+A successful pipeline run does not necessarily mean that the answer was correct. All 20 questions completed successfully but I wasnt satisfied with four generated answers which did not reach the expected answer criteria.
+
+#### Performance Observations
+
+The saved evaluation output contains numeric execution times for 19 questions. Q14 was manually retried by running the script through terminal because it gave an earlier timeout and its successful retry does not have a recorded execution time in the final JSON.
+
+For the 19 questions with recorded durations:
+
+- Average execution time: approximately 317.88 seconds.
+- Median execution time: 214.77 seconds.
+- Fastest recorded execution: 2.27 seconds.
+- Slowest recorded execution: 1,785.25 seconds.
+
+These measurements show that response time varied considerably across questions on the local machine.
+
+The average and median above are calculated from the 19 recorded durations, not all 20 questions.
+
+#### Analysis of Failed Answers
+
+I marked four questions as failed during manual answer evaluation.
+
+| Question | Main issue |
+|---|---|
+| Q01 | The answer neglected that annual leave is additional to public holidays. |
+| Q03 | The answer i got gave the 99.95% uptime SLA but missed that it is measured monthly. |
+| Q12 | The generated answer omitted the additional in-office requirements that department heads may establish with HR approval. |
+| Q13 | The answer incorrectly claimed that the handbook contained no ARR information and missed the approximately EUR 17 million FY2025 ARR figure. |
+
+These failures demonstrate that retrieving relevant documents cant guarantee that the generator will include every required detail.
+Q13 was particularly important because generated answer incorrectly stated that the handbook does not contain ARR information even though the expected evidence was in the handbook. From this its observed that a retrieval and evidence-selection problem is also a generation-quality problem.
+
+#### Observations from Unanswerable Questions
+
+I tested the unanswerable questions to see whether the system could avoid inventing information that was not available in the supplied documents.
+Our pipeline correctly refused to provide unsupported answers for the tested questions about:
+
+- The exact annual employee bonus payment date.
+- The exact Q1 2026 net profit after tax.
+- CEO's personal mobile phone number.
+- An individual employee's exact annual base salary.
+- And the CEO's residential street address.
+
+The generated answers didnt invent the missing dates, financial figures or personal information.
+
+However, a fair refusal should not be automatically interpreted as proof that retrieval was perfect from what I can say. For example, Q16 returned an irrelevant handbook passage but still correctly stated that the exact bonus payment date could not be determined.
+
+### Important Retrieval and Generation Limitations
+
+The several observed limitations are:
+
+- **Retrieval coverage:** The Q13 answer missed the handbook evidence containing the FY2025 ARR figure.
+- **Answer completeness:** Q01, Q03 and Q12 contained mostly correct information but didnt notice details required by the expected answers.
+- **Query sensitivity:** The Q11 experiment demonstrated that query wording can influence which documents are retrieved.
+- **Threshold sensitivity:** Q07 demonstrated that an overly restrictive distance threshold can remove relevant evidence.
+- **Execution time:** The local 4B model had highly variable response times, including a very long execution for Q13.
+- **Unanswerable questions:** Our system refused the tested unsupported questions successfully but stil I think a refusal alone does not establish tthe retrieval stage found all relevant evidence.
+
+#### Overall Evaluation Conclusion
+
+After full evaluation it was demonstrated that the local RAG pipeline successfully execute all 20 test questions and achieved an 80% manually evaluated answer pass rate. Our designed system performed well on several direct factual questions, detailed questions and cross-document questions. It also showed the ability to refuse unsupported questions instead of inventing some new answers.
+However, the failed answers proves the pipeline still has limitations in retrieval coverage and answer completeness and most of the time it does have limitations since it has alot of important factors to make it better with less limitations.

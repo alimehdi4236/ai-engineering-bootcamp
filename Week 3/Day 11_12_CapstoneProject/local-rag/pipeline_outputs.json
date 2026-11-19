@@ -1,0 +1,862 @@
+{
+    "dataset_name": "NovaTech Local RAG Evaluation",
+    "total_questions": 20,
+    "successful_runs": 20,
+    "failed_runs": 0,
+    "results": [
+        {
+            "id": "Q01",
+            "category": "direct_factual",
+            "answerable": true,
+            "question": "How many days of paid annual leave do full-time employees receive and how does this differ for part-time employees?",
+            "expected_answer": "Full-time employees receive 25 days of paid time off per calendar year in addition to public holidays observed at their office location. Part-time employees receive PTO on a pro-rata basis.",
+            "expected_sources": [
+                {
+                    "file": "company_handbook.pdf",
+                    "pages": [
+                        5
+                    ]
+                }
+            ],
+            "generated_answer": "According to the company handbook, all full-time employees receive twenty-five (25) days of paid time off (PTO) per calendar year. Part-time employees receive PTO on a pro-rata basis (company_handbook.pdf, page 5).",
+            "retrieved_sources": [
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 5,
+                    "distance": 0.22802895307540894
+                },
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 5,
+                    "distance": 0.30409544706344604
+                }
+            ],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": "stop",
+            "time_seconds": 174.97,
+            "status": "success",
+            "passed": false,
+            "rating_note": "Correct leave entitlement and pro-rata rule but it neglected that annual leave is additional to public holidays."
+        },
+        {
+            "id": "Q02",
+            "category": "direct_factual",
+            "answerable": true,
+            "question": "What is the standard working week at NovaTech, including the exception for employees on German contracts?",
+            "expected_answer": "The standard work week is 40 hours, or 38.5 hours for employees on German contracts.",
+            "expected_sources": [
+                {
+                    "file": "company_handbook.pdf",
+                    "pages": [
+                        3
+                    ]
+                }
+            ],
+            "generated_answer": "According to the employee handbook, the standard working week at NovaTech Solutions is 40 hours. For employees on German contracts, the standard work week is 38.5 hours. (company_handbook.pdf, page 3)",
+            "retrieved_sources": [
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 3,
+                    "distance": 0.15640515089035034
+                },
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 4,
+                    "distance": 0.2874588370323181
+                },
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 6,
+                    "distance": 0.2903928756713867
+                },
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 8,
+                    "distance": 0.30765002965927124
+                },
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 1,
+                    "distance": 0.30981123447418213
+                }
+            ],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": "stop",
+            "time_seconds": 121.67,
+            "status": "success",
+            "passed": true,
+            "rating_note": "It correctly identify and says both standard working hours and the German-contract exception."
+        },
+        {
+            "id": "Q03",
+            "category": "direct_factual",
+            "answerable": true,
+            "question": "What is the Enterprise uptime SLA stated in the product guide?",
+            "expected_answer": "The Enterprise tier has a 99.95% uptime SLA, measured monthly.",
+            "expected_sources": [
+                {
+                    "file": "product_guide.pdf",
+                    "pages": [
+                        13,
+                        14
+                    ]
+                }
+            ],
+            "generated_answer": "According to the product guide, the Enterprise uptime SLA is 99.95%. (product_guide.pdf, page 14)",
+            "retrieved_sources": [
+                {
+                    "source": "product_guide.pdf",
+                    "page": 14,
+                    "distance": 0.2687704563140869
+                },
+                {
+                    "source": "product_guide.pdf",
+                    "page": 13,
+                    "distance": 0.27892690896987915
+                },
+                {
+                    "source": "product_guide.pdf",
+                    "page": 14,
+                    "distance": 0.34643983840942383
+                },
+                {
+                    "source": "product_guide.pdf",
+                    "page": 13,
+                    "distance": 0.3653443455696106
+                }
+            ],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": "stop",
+            "time_seconds": 251.92,
+            "status": "success",
+            "passed": false,
+            "rating_note": "Correct uptime percentage but it missed the monthly measurement period."
+        },
+        {
+            "id": "Q04",
+            "category": "direct_factual",
+            "answerable": true,
+            "question": "How many pre-built widgets are included in the Shared Analytics Dashboard in ProjectHub?",
+            "expected_answer": "The ProjectHub Shared Analytics Dashboard includes eight pre-built widgets: task burndown, sprint velocity, resource utilization, overdue tasks, project health score, milestone tracker, risk heatmap, and team workload.",
+            "expected_sources": [
+                {
+                    "file": "product_guide.pdf",
+                    "pages": [
+                        9
+                    ]
+                }
+            ],
+            "generated_answer": "Based on the provided documents, the Shared Analytics Dashboard in ProjectHub includes **8** pre-built widgets. This is explicitly listed under the NovaTech ProjectHub section and confirmed in the Key Differences Summary table comparing ProjectHub and Insight versions.\n\n*   (product_guide.pdf, page 9)\n*   (product_guide.pdf, page 10)",
+            "retrieved_sources": [
+                {
+                    "source": "product_guide.pdf",
+                    "page": 9,
+                    "distance": 0.21026623249053955
+                },
+                {
+                    "source": "product_guide.pdf",
+                    "page": 9,
+                    "distance": 0.21939575672149658
+                },
+                {
+                    "source": "product_guide.pdf",
+                    "page": 9,
+                    "distance": 0.27525895833969116
+                },
+                {
+                    "source": "product_guide.pdf",
+                    "page": 10,
+                    "distance": 0.28869956731796265
+                },
+                {
+                    "source": "product_guide.pdf",
+                    "page": 10,
+                    "distance": 0.3482822775840759
+                }
+            ],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": "stop",
+            "time_seconds": 169.43,
+            "status": "success",
+            "passed": true,
+            "rating_note": "Correctly identifies eight pre-built widgets."
+        },
+        {
+            "id": "Q05",
+            "category": "direct_factual",
+            "answerable": true,
+            "question": "How many paid sick days are employees entitled to per calendar year?",
+            "expected_answer": "Employees are entitled to 10 paid sick days per calendar year.",
+            "expected_sources": [
+                {
+                    "file": "company_handbook.pdf",
+                    "pages": [
+                        5
+                    ]
+                }
+            ],
+            "generated_answer": "Employees are entitled to ten (10) paid sick days per calendar year (company_handbook.pdf, page 5).",
+            "retrieved_sources": [
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 5,
+                    "distance": 0.23291265964508057
+                },
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 5,
+                    "distance": 0.30160093307495117
+                }
+            ],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": "stop",
+            "time_seconds": 123.05,
+            "status": "success",
+            "passed": true,
+            "rating_note": "Correct sick-day entitlement"
+        },
+        {
+            "id": "Q06",
+            "category": "detailed",
+            "answerable": true,
+            "question": "What encryption standards apply to Confidential data at rest and in transit, and how often are encryption keys rotated?",
+            "expected_answer": "Confidential data at rest must use AES-256 or an equivalent algorithm approved by the Security Team. Confidential data transmitted across networks must use TLS 1.3. Encryption keys are managed through a centralized KMS with automated rotation every 90 days.",
+            "expected_sources": [
+                {
+                    "file": "security_policy.pdf",
+                    "pages": [
+                        3,
+                        8,
+                        9
+                    ]
+                }
+            ],
+            "generated_answer": "Based on the provided documents, the encryption standards and key rotation policies for Confidential data are as follows:\n\n**Encryption Standards**\n*   **At Rest:** Confidential data must be encrypted using AES-256 (security_policy.pdf, page 8; product_guide.pdf, page 24; security_policy.pdf, page 3).\n*   **In Transit:** Confidential data must be encrypted using TLS 1.3 (security_policy.pdf, page 3; security_policy.pdf, page 9; product_guide.pdf, page 24).\n\n**Key Rotation Frequency**\nThere is a discrepancy regarding the frequency of encryption key rotation between the two documents:\n*   The security policy states that keys are managed with automated rotation every **90 days** (security_policy.pdf, page 8).\n*   The product guide states that keys are managed via AWS KMS with automatic key rotation every **365 days** (product_guide.pdf, page 24).",
+            "retrieved_sources": [
+                {
+                    "source": "security_policy.pdf",
+                    "page": 8,
+                    "distance": 0.21651536226272583
+                },
+                {
+                    "source": "product_guide.pdf",
+                    "page": 24,
+                    "distance": 0.3309808373451233
+                },
+                {
+                    "source": "security_policy.pdf",
+                    "page": 3,
+                    "distance": 0.33347970247268677
+                },
+                {
+                    "source": "meeting_notes.pdf",
+                    "page": 7,
+                    "distance": 0.33729130029678345
+                },
+                {
+                    "source": "security_policy.pdf",
+                    "page": 9,
+                    "distance": 0.34375500679016113
+                }
+            ],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": "stop",
+            "time_seconds": 356.74,
+            "status": "success",
+            "passed": true,
+            "rating_note": "Perfectly identifies the encryption standards and 90-day key rotation requirement while transparently reporting a conflicting 365-day statement."
+        },
+        {
+            "id": "Q07",
+            "category": "detailed",
+            "answerable": true,
+            "question": "What is the deadline for submitting business expenses, and what can happen if an employee submits them late?",
+            "expected_answer": "Expenses must be submitted through NovaExpense within 30 calendar days of being incurred. Expenses submitted after this deadline may not be reimbursed.",
+            "expected_sources": [
+                {
+                    "file": "company_handbook.pdf",
+                    "pages": [
+                        6
+                    ]
+                }
+            ],
+            "generated_answer": "According to the Expense and Travel Policy, all expenses must be submitted through the NovaExpense platform within thirty (30) calendar days of being incurred (company_handbook.pdf, page 6). If an employee submits expenses after this deadline, they may not be reimbursed. Additionally, repeated violations of the expense policy, including late submissions, may result in suspension of the employee's corporate credit card and disciplinary action (company_handbook.pdf, page 8).",
+            "retrieved_sources": [
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 8,
+                    "distance": 0.2997240424156189
+                },
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 11,
+                    "distance": 0.3415970802307129
+                },
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 5,
+                    "distance": 0.35552239418029785
+                },
+                {
+                    "source": "product_guide.pdf",
+                    "page": 14,
+                    "distance": 0.3570709824562073
+                },
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 6,
+                    "distance": 0.36455339193344116
+                }
+            ],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": "stop",
+            "time_seconds": 214.77,
+            "status": "success",
+            "passed": true,
+            "rating_note": "It explains fine the 30-day submission deadline, reimbursement consequences and possible disciplinary action."
+        },
+        {
+            "id": "Q08",
+            "category": "detailed",
+            "answerable": true,
+            "question": "What are the ProjectHub file-storage limits per project for Starter, Professional, and Enterprise tiers?",
+            "expected_answer": "The limits are 5 GB per project for Starter, 50 GB for Professional, and 500 GB for Enterprise.",
+            "expected_sources": [
+                {
+                    "file": "product_guide.pdf",
+                    "pages": [
+                        4,
+                        12
+                    ]
+                }
+            ],
+            "generated_answer": "Based on the provided documents, the ProjectHub file storage limits per project are:\n\n*   **Starter:** 5 GB\n*   **Professional:** 50 GB\n*   **Enterprise:** 500 GB\n\nThis information is stated in the Document Management section on page 4 and confirmed in the feature comparison table on page 12 of the product guide (product_guide.pdf, page 4; product_guide.pdf, page 12).",
+            "retrieved_sources": [
+                {
+                    "source": "product_guide.pdf",
+                    "page": 5,
+                    "distance": 0.2932460904121399
+                },
+                {
+                    "source": "product_guide.pdf",
+                    "page": 4,
+                    "distance": 0.29485464096069336
+                },
+                {
+                    "source": "product_guide.pdf",
+                    "page": 3,
+                    "distance": 0.30045855045318604
+                },
+                {
+                    "source": "product_guide.pdf",
+                    "page": 12,
+                    "distance": 0.30470895767211914
+                },
+                {
+                    "source": "product_guide.pdf",
+                    "page": 10,
+                    "distance": 0.30623531341552734
+                }
+            ],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": "stop",
+            "time_seconds": 211.04,
+            "status": "success",
+             "passed": true,
+            "rating_note": "Correctly provides all three ProjectHub storage limits."
+        },
+        {
+            "id": "Q09",
+            "category": "detailed",
+            "answerable": true,
+            "question": "What does the Information Security Policy require for a P1 critical incident in terms of acknowledgment, assembling the response team, and notifying senior leadership?",
+            "expected_answer": "A P1 incident must be acknowledged within 15 minutes of detection. The full Incident Response Team must be assembled within 30 minutes. The CEO, General Counsel, and Board Security Committee must be notified within 1 hour.",
+            "expected_sources": [
+                {
+                    "file": "security_policy.pdf",
+                    "pages": [
+                        6
+                    ]
+                }
+            ],
+            "generated_answer": "According to the Information Security Policy, a P1 critical incident requires the following actions:\n\n*   **Acknowledgment:** Must occur within 15 minutes of detection (security_policy.pdf, page 6).\n*   **Assembling the Response Team:** The full Incident Response Team must be assembled within 30 minutes (security_policy.pdf, page 6).\n*   **Notifying Senior Leadership:** The CEO, General Counsel, and Board Security Committee must be notified within 1 hour (security_policy.pdf, page 6).",
+            "retrieved_sources": [
+                {
+                    "source": "security_policy.pdf",
+                    "page": 6,
+                    "distance": 0.20797330141067505
+                },
+                {
+                    "source": "security_policy.pdf",
+                    "page": 6,
+                    "distance": 0.26985859870910645
+                },
+                {
+                    "source": "security_policy.pdf",
+                    "page": 7,
+                    "distance": 0.290435791015625
+                },
+                {
+                    "source": "security_policy.pdf",
+                    "page": 8,
+                    "distance": 0.30063045024871826
+                },
+                {
+                    "source": "security_policy.pdf",
+                    "page": 7,
+                    "distance": 0.3039330840110779
+                }
+            ],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": "stop",
+            "time_seconds": 234.93,
+            "status": "success",
+            "passed": true,
+            "rating_note": "Correctly states all three P1 incident response deadlines and required leadership notifications."
+        },
+        {
+            "id": "Q10",
+            "category": "detailed",
+            "answerable": true,
+            "question": "What are the three pricing tiers and their monthly per-user prices in the product guide?",
+            "expected_answer": "Starter costs €29 per user per month, Professional costs €79 per user per month, and Enterprise has custom pricing.",
+            "expected_sources": [
+                {
+                    "file": "product_guide.pdf",
+                    "pages": [
+                        11
+                    ]
+                }
+            ],
+            "generated_answer": "Based on the product guide, the three pricing tiers and their monthly per-user prices are as follows:\n\n*   **Starter:** €29/user/month\n*   **Professional:** €79/user/month\n*   **Enterprise:** Custom pricing\n\nThis information is found in the Per-Product Pricing section on page 10 of the document. (product_guide.pdf, page 10)",
+            "retrieved_sources": [
+                {
+                    "source": "product_guide.pdf",
+                    "page": 10,
+                    "distance": 0.28272122144699097
+                },
+                {
+                    "source": "product_guide.pdf",
+                    "page": 11,
+                    "distance": 0.29017698764801025
+                },
+                {
+                    "source": "product_guide.pdf",
+                    "page": 10,
+                    "distance": 0.35864198207855225
+                }
+            ],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": "stop",
+            "time_seconds": 540.17,
+            "status": "success",
+            "passed": true,
+            "rating_note": "Correctly identifies all three pricing tiers and their monthly per-user prices."
+        },
+        {
+            "id": "Q11",
+            "category": "cross_document",
+            "answerable": true,
+            "question": "How many employees does NovaTech Solutions have according to the company handbook, and how many full-time employees did it have at the end of Q1 2026?",
+            "expected_answer": "The company handbook describes NovaTech as having approximately 400 employees. The Q1 2026 report's KPI dashboard records employee headcount as 412. These figures are consistent in scale, with the quarterly report giving the more specific Q1 2026 figure.",
+            "expected_sources": [
+                {
+                    "file": "company_handbook.pdf",
+                    "pages": [
+                        1
+                    ]
+                },
+                {
+                    "file": "quarterly_report_q1_2026.pdf",
+                    "pages": [
+                        14
+                    ]
+                }
+            ],
+            "generated_answer": "According to the company handbook, NovaTech Solutions has approximately 400 employees (company_handbook.pdf, page 1). At the end of Q1 2026, the company had 412 full-time employees (quarterly_report_q1_2026.pdf, page 8).",
+            "retrieved_sources": [
+                {
+                    "source": "quarterly_report_q1_2026.pdf",
+                    "page": 8,
+                    "distance": 0.12450259923934937
+                },
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 1,
+                    "distance": 0.2334129810333252
+                },
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 1,
+                    "distance": 0.25339025259017944
+                },
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 2,
+                    "distance": 0.25681865215301514
+                },
+                {
+                    "source": "quarterly_report_q1_2026.pdf",
+                    "page": 1,
+                    "distance": 0.2600436210632324
+                }
+            ],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": "stop",
+            "time_seconds": 349.86,
+            "status": "success",
+            "passed": true,
+            "rating_note": "compares perfectly 400 employees in the handbook with 412 full-time employees in the Q1 2026 report."
+        },
+        {
+            "id": "Q12",
+            "category": "cross_document",
+            "answerable": true,
+            "question": "What remote-work arrangement was described in the employee handbook, and what change did leadership approve for Q3 2026?",
+            "expected_answer": "The handbook describes eligible employees as being able to work remotely up to 3 days per week, subject to manager approval. In the March 5 leadership meeting leadership approved an updated policy allowing up to 4 remote days per week from Q3 2026 with Tuesday remaining the company-wide mandatory in-office day. Department heads may set additional in-office requirements with HR approval.",
+            "expected_sources": [
+                {
+                    "file": "company_handbook.pdf",
+                    "pages": [
+                        4,
+                        5
+                    ]
+                },
+                {
+                    "file": "meeting_notes.pdf",
+                    "pages": [
+                        6,
+                        7
+                    ]
+                }
+            ],
+            "generated_answer": "According to the employee handbook (company_handbook.pdf, page 4), eligible employees may work remotely for up to three (3) days per week, subject to manager approval, provided they meet requirements such as having a stable internet connection and using the company VPN.\n\nLeadership approved a change effective Q3 2026 that updates the policy to allow up to four (4) days remote per week, with Tuesday remaining the mandatory in-office day (meeting_notes.pdf, page 7).",
+            "retrieved_sources": [
+                {
+                    "source": "meeting_notes.pdf",
+                    "page": 7,
+                    "distance": 0.24174392223358154
+                },
+                {
+                    "source": "meeting_notes.pdf",
+                    "page": 6,
+                    "distance": 0.2671545743942261
+                },
+                {
+                    "source": "meeting_notes.pdf",
+                    "page": 6,
+                    "distance": 0.2819472551345825
+                },
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 4,
+                    "distance": 0.29098474979400635
+                },
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 4,
+                    "distance": 0.3171207904815674
+                }
+            ],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": "stop",
+            "time_seconds": 236.82,
+            "status": "success",
+            "passed": false,
+            "rating_note": "Correctly describes the remote-work policy change but misses the additional in-office requirements that department heads may establish with HR approval but this might be fixed by adding bit more in query"
+        },
+        {
+            "id": "Q13",
+            "category": "cross_document",
+            "answerable": true,
+            "question": "What was NovaTech's ARR in fiscal year 2025 according to the handbook, and what ARR did the Q1 2026 report record?",
+            "expected_answer": "The handbook states that NovaTech achieved approximately €17 million in ARR in fiscal year 2025. The Q1 2026 report records ARR of €18.2 million at quarter-end. The figures refer to different reporting periods and should not be treated as the same measurement date.",
+            "expected_sources": [
+                {
+                    "file": "company_handbook.pdf",
+                    "pages": [
+                        1,
+                        2
+                    ]
+                },
+                {
+                    "file": "quarterly_report_q1_2026.pdf",
+                    "pages": [
+                        1,
+                        2
+                    ]
+                }
+            ],
+            "generated_answer": "Based on the provided documents, there is **insufficient information** regarding NovaTech's ARR in fiscal year 2025 according to the handbook. The Employee Handbook (company_handbook.pdf) does not contain financial metrics or Annual Recurring Revenue (ARR) data for any fiscal year (Source 3, Page 1; Source 2, Page 10).\n\nAccording to the Q1 2026 report (quarterly_report_q1_2026.pdf), the recorded ARR at quarter-end was **EUR 18.2 million**. The report further states that this represents a year-over-year increase from EUR 14.8 million at the close of Q1 2025 (Source 1, Page 1).",
+            "retrieved_sources": [
+                {
+                    "source": "quarterly_report_q1_2026.pdf",
+                    "page": 1,
+                    "distance": 0.2500963807106018
+                },
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 10,
+                    "distance": 0.3224126696586609
+                },
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 1,
+                    "distance": 0.3323312997817993
+                },
+                {
+                    "source": "quarterly_report_q1_2026.pdf",
+                    "page": 3,
+                    "distance": 0.33320701122283936
+                },
+                {
+                    "source": "quarterly_report_q1_2026.pdf",
+                    "page": 8,
+                    "distance": 0.33345091342926025
+                }
+            ],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": "stop",
+            "time_seconds": 1785.25,
+            "status": "success",
+            "passed": false,
+            "rating_note": "Incorrectly claims the handbook contains no ARR information and misses the approximately EUR 17 million FY2025 figure."
+        },
+        {
+            "id": "Q14",
+            "category": "cross_document",
+            "answerable": true,
+            "question": "What budget did leadership approve for NovaTech Copilot, and what release stages and target timing does the Q1 2026 report describe?",
+            "expected_answer": "The March 5 leadership meeting notes record approval of a €1.2 million budget for NovaTech Copilot. The Q1 2026 report lists Copilot in the Q3 2026 roadmap as being in the design phase, with an initial internal alpha targeted for July 2026 and a customer beta planned for September 2026. These are the budget and timing details stated in the respective documents.",
+            "expected_sources": [
+                {
+                    "file": "meeting_notes.pdf",
+                    "pages": [
+                        8
+                    ]
+                },
+                {
+                    "file": "quarterly_report_q1_2026.pdf",
+                    "pages": [
+                        6
+                    ]
+                }
+            ],
+            "generated_answer": "Leadership approved a total budget of EUR 1.2 million for NovaTech Copilot (meeting_notes.pdf, page 8). According to the Q1 2026 report, the initiative is in the Design phase with a target quarter of Q3 2026 (quarterly_report_q1_2026.pdf, page 6). The report further specifies an initial internal alpha targeted for July 2026 and a customer beta planned for September 2026 (quarterly_report_q1_2026.pdf, page 6).",
+            "retrieved_sources": [
+                {
+                    "source": "meeting_notes.pdf",
+                    "page": 8,
+                    "distance": 0.22220325469970703
+                },
+                {
+                    "source": "quarterly_report_q1_2026.pdf",
+                    "page": 6,
+                    "distance": 0.2462671995162964
+                },
+                {
+                    "source": "quarterly_report_q1_2026.pdf",
+                    "page": 1,
+                    "distance": 0.251375675201416
+                },
+                {
+                    "source": "quarterly_report_q1_2026.pdf",
+                    "page": 6,
+                    "distance": 0.26391327381134033
+                },
+                {
+                    "source": "meeting_notes.pdf",
+                    "page": 8,
+                    "distance": 0.2753296494483948
+                }
+            ],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": "stop",
+            "status": "success",
+            "passed": true,
+            "rating_note": "It identified the EUR 1.2 million budget, design phase, July internal alpha and September customer beta."
+
+        },
+        {
+            "id": "Q15",
+            "category": "cross_document",
+            "answerable": true,
+            "question": "How did ProjectHub and Insight contribute to Q1 2026 revenue, and which product had the higher year-over-year growth?",
+            "expected_answer": "ProjectHub generated €3.36 million, representing 70% of Q1 2026 revenue, with 26% year-over-year growth. Insight generated €1.20 million, representing 25% of revenue, with 31% year-over-year growth. Insight had the higher year-over-year growth rate.",
+            "expected_sources": [
+                {
+                    "file": "quarterly_report_q1_2026.pdf",
+                    "pages": [
+                        2
+                    ]
+                }
+            ],
+            "generated_answer": "Based on the provided documents, ProjectHub contributed EUR 3.36M (70% of total revenue) to Q1 2026 revenue with a year-over-year growth of +26%, while Insight contributed EUR 1.20M (25% of total revenue) with a year-over-year growth of +31%. Consequently, Insight had the higher year-over-year growth rate.\n\n(quarterly_report_q1_2026.pdf, page 2)",
+            "retrieved_sources": [
+                {
+                    "source": "quarterly_report_q1_2026.pdf",
+                    "page": 2,
+                    "distance": 0.18993699550628662
+                },
+                {
+                    "source": "quarterly_report_q1_2026.pdf",
+                    "page": 1,
+                    "distance": 0.2427119016647339
+                },
+                {
+                    "source": "quarterly_report_q1_2026.pdf",
+                    "page": 2,
+                    "distance": 0.2678720951080322
+                },
+                {
+                    "source": "product_guide.pdf",
+                    "page": 10,
+                    "distance": 0.2820713520050049
+                },
+                {
+                    "source": "quarterly_report_q1_2026.pdf",
+                    "page": 5,
+                    "distance": 0.29168784618377686
+                }
+            ],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": "stop",
+            "time_seconds": 217.72,
+            "status": "success",
+            "passed": true,
+            "rating_note": "it identifies both products' revenue contributions, percentages and year-over-year growth rates."
+        },
+        {
+            "id": "Q16",
+            "category": "unanswerable",
+            "answerable": false,
+            "question": "On what exact calendar date does the company pay its annual employee bonus?",
+            "expected_answer": "The provided documents do not specify an annual employee bonus payment date. The handbook mentions a €250 NovaStar Award bonus for quarterly award winners, but it does not state a company-wide annual bonus payment date.",
+            "expected_sources": [
+                {
+                    "file": "company_handbook.pdf",
+                    "pages": [
+                        11
+                    ]
+                }
+            ],
+            "generated_answer": "Based on the provided document evidence, there is insufficient information to determine the exact calendar date when the company pays its annual employee bonus. The text from (company_handbook.pdf, page 5) only covers Team Days and the Annual Leave/PTO policy.",
+            "retrieved_sources": [
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 5,
+                    "distance": 0.3558309078216553
+                }
+            ],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": "stop",
+            "time_seconds": 122.43,
+            "status": "success",
+            "passed": true,
+            "rating_note": "It perfectly states that the exact annual bonus payment date is unavailable even though retrieval returns an irrelevant handbook page."
+        },
+        {
+            "id": "Q17",
+            "category": "unanswerable",
+            "answerable": false,
+            "question": "What was NovaTech's exact net profit after tax for Q1 2026?",
+            "expected_answer": "The Q1 2026 report provides operating income and operating expenses, but the provided report does not state an exact net profit after tax figure.",
+            "expected_sources": [
+                {
+                    "file": "quarterly_report_q1_2026.pdf",
+                    "pages": [
+                        3
+                    ]
+                }
+            ],
+            "generated_answer": "Based on the provided documents, there is insufficient information to determine NovaTech's exact net profit after tax for Q1 2026.\n\nWhile the financial reports provide data on revenue and cash position, they do not disclose net profit figures:\n*   The quarterly report states that recognized revenue came in at EUR 4.8 million but does not mention profit margins or after-tax earnings (quarterly_report_q1_2026.pdf, page 1).\n*   The cash position section notes a quarter-end balance of EUR 6.1M but does not include profitability data (quarterly_report_q1_2026.pdf, page 3).\n*   The company handbook mentions the fiscal year 2025 annual recurring revenue was approximately €17 million but contains no profit information for Q1 2026 (company_handbook.pdf, page 2).",
+            "retrieved_sources": [
+                {
+                    "source": "quarterly_report_q1_2026.pdf",
+                    "page": 1,
+                    "distance": 0.24971383810043335
+                },
+                {
+                    "source": "quarterly_report_q1_2026.pdf",
+                    "page": 3,
+                    "distance": 0.28298962116241455
+                },
+                {
+                    "source": "quarterly_report_q1_2026.pdf",
+                    "page": 8,
+                    "distance": 0.2905861735343933
+                },
+                {
+                    "source": "company_handbook.pdf",
+                    "page": 2,
+                    "distance": 0.31117820739746094
+                },
+                {
+                    "source": "product_guide.pdf",
+                    "page": 5,
+                    "distance": 0.3434048891067505
+                }
+            ],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": "stop",
+            "time_seconds": 801.68,
+            "status": "success",
+            "passed": true,
+            "rating_note": "it detected fine that the documents do not provide an exact net profit after tax figure"
+        },
+        {
+            "id": "Q18",
+            "category": "unanswerable",
+            "answerable": false,
+            "question": "What is CEO Sarah Chen's personal mobile phone number?",
+            "expected_answer": "The provided documents do not contain CEO Sarah Chen's personal mobile phone number.",
+            "expected_sources": [],
+            "generated_answer": "I could not find sufficient relevant evidence in the provided documents to answer this question.",
+            "retrieved_sources": [],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": null,
+            "time_seconds": 3.03,
+            "status": "success",
+            "passed": true,
+            "rating_note": "It refuses to provide a personal mobile number that is not present in the documents."
+        },
+        {
+            "id": "Q19",
+            "category": "unanswerable",
+            "answerable": false,
+            "question": "What is the exact annual base salary of a specific backend engineer employed in the Munich office?",
+            "expected_answer": "The provided documents do not state the exact annual base salary of an individual backend engineer in the Munich office. They contain some general staffing and cost information, but not this employee-specific salary.",
+            "expected_sources": [],
+            "generated_answer": "Based on the provided document evidence, there is insufficient information to determine the exact annual base salary of a specific backend engineer employed in the Munich office. The available text from quarterly_report_q1_2026.pdf on page 9 details the headcount and departmental presence for the Munich office but does not contain any compensation or salary data.",
+            "retrieved_sources": [
+                {
+                    "source": "quarterly_report_q1_2026.pdf",
+                    "page": 9,
+                    "distance": 0.3048306703567505
+                }
+            ],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": "stop",
+            "time_seconds": 121.9,
+            "status": "success",
+            "passed": true,
+            "rating_note": "Correctly identifies that the documents do not disclose the specific employee's annual base salary and also didnt generated this random info as well"
+        },
+        {
+            "id": "Q20",
+            "category": "unanswerable",
+            "answerable": false,
+            "question": "What is the CEO's residential street address?",
+            "expected_answer": "The provided documents do not state the CEO's residential street address.",
+            "expected_sources": [],
+            "generated_answer": "I could not find sufficient relevant evidence in the provided documents to answer this question.",
+            "retrieved_sources": [],
+            "model": "qwen3.5:4b-q4_K_M",
+            "finish_reason": null,
+            "time_seconds": 2.27,
+            "status": "success",
+            "passed": true,
+            "rating_note": "It refuses to invent a residential address that is not present in the documents also not invented random info for that as well"
+        }
+    ]
+}

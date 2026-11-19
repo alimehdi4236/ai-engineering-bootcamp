@@ -11,7 +11,7 @@ CHROMA_DIR = PROJECT_ROOT / "chroma_db"
 COLLECTION_NAME = "novatech_documents"
 EMBEDDING_MODEL = "nomic-embed-text"
 TOP_K = 5
-MAX_DISTANCE = 0.35
+MAX_DISTANCE = 0.37
 
 
 ollama_client = OpenAI(

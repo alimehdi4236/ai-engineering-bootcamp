@@ -1,0 +1,318 @@
+{
+  "dataset_name": "NovaTech Local RAG Evaluation",
+  "version": "1.0",
+  "total_questions": 20,
+  "questions": [
+    {
+      "id": "Q01",
+      "category": "direct_factual",
+      "answerable": true,
+      "question": "How many days of paid annual leave do full-time employees receive and how does this differ for part-time employees?",
+      "expected_answer": "Full-time employees receive 25 days of paid time off per calendar year in addition to public holidays observed at their office location. Part-time employees receive PTO on a pro-rata basis.",
+      "expected_sources": [
+        {
+          "file": "company_handbook.pdf",
+          "pages": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q02",
+      "category": "direct_factual",
+      "answerable": true,
+      "question": "What is the standard working week at NovaTech, including the exception for employees on German contracts?",
+      "expected_answer": "The standard work week is 40 hours, or 38.5 hours for employees on German contracts.",
+      "expected_sources": [
+        {
+          "file": "company_handbook.pdf",
+          "pages": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q03",
+      "category": "direct_factual",
+      "answerable": true,
+      "question": "What is the Enterprise uptime SLA stated in the product guide?",
+      "expected_answer": "The Enterprise tier has a 99.95% uptime SLA, measured monthly.",
+      "expected_sources": [
+        {
+          "file": "product_guide.pdf",
+          "pages": [
+            13,
+            14
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q04",
+      "category": "direct_factual",
+      "answerable": true,
+      "question": "How many pre-built widgets are included in the Shared Analytics Dashboard in ProjectHub?",
+      "expected_answer": "The ProjectHub Shared Analytics Dashboard includes eight pre-built widgets: task burndown, sprint velocity, resource utilization, overdue tasks, project health score, milestone tracker, risk heatmap, and team workload.",
+      "expected_sources": [
+        {
+          "file": "product_guide.pdf",
+          "pages": [
+            9
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q05",
+      "category": "direct_factual",
+      "answerable": true,
+      "question": "How many paid sick days are employees entitled to per calendar year?",
+      "expected_answer": "Employees are entitled to 10 paid sick days per calendar year. Sick days do not carry over between calendar years.",
+      "expected_sources": [
+        {
+          "file": "company_handbook.pdf",
+          "pages": [
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q06",
+      "category": "detailed",
+      "answerable": true,
+      "question": "What encryption standards apply to Confidential data at rest and in transit, and how often are encryption keys rotated?",
+      "expected_answer": "Confidential data at rest must use AES-256 or an equivalent algorithm approved by the Security Team. Confidential data transmitted across networks must use TLS 1.3. Encryption keys are managed through a centralized KMS with automated rotation every 90 days.",
+      "expected_sources": [
+        {
+          "file": "security_policy.pdf",
+          "pages": [
+            3,
+            8,
+            9
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q07",
+      "category": "detailed",
+      "answerable": true,
+      "question": "What is the deadline for submitting business expenses, and what can happen if an employee submits them late?",
+      "expected_answer": "Expenses must be submitted through NovaExpense within 30 calendar days of being incurred. Expenses submitted after this deadline may not be reimbursed.",
+      "expected_sources": [
+        {
+          "file": "company_handbook.pdf",
+          "pages": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q08",
+      "category": "detailed",
+      "answerable": true,
+      "question": "What are the ProjectHub file-storage limits per project for Starter, Professional, and Enterprise tiers?",
+      "expected_answer": "The limits are 5 GB per project for Starter, 50 GB for Professional, and 500 GB for Enterprise.",
+      "expected_sources": [
+        {
+          "file": "product_guide.pdf",
+          "pages": [
+            4,
+            12
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q09",
+      "category": "detailed",
+      "answerable": true,
+      "question": "What does the Information Security Policy require for a P1 critical incident in terms of acknowledgment, assembling the response team, and notifying senior leadership?",
+      "expected_answer": "A P1 incident must be acknowledged within 15 minutes of detection. The full Incident Response Team must be assembled within 30 minutes. The CEO, General Counsel, and Board Security Committee must be notified within 1 hour.",
+      "expected_sources": [
+        {
+          "file": "security_policy.pdf",
+          "pages": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q10",
+      "category": "detailed",
+      "answerable": true,
+      "question": "What are the three pricing tiers and their monthly per-user prices in the product guide?",
+      "expected_answer": "Starter costs €29 per user per month, Professional costs €79 per user per month, and Enterprise has custom pricing.",
+      "expected_sources": [
+        {
+          "file": "product_guide.pdf",
+          "pages": [
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q11",
+      "category": "cross_document",
+      "answerable": true,
+      "question": "How many employees does NovaTech Solutions have according to the company handbook, and how many full-time employees did it have at the end of Q1 2026?",
+      "expected_answer": "The company handbook describes NovaTech as having approximately 400 employees. The Q1 2026 report's KPI dashboard records employee headcount as 412. These figures are consistent in scale, with the quarterly report giving the more specific Q1 2026 figure.",
+      "expected_sources": [
+        {
+          "file": "company_handbook.pdf",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "file": "quarterly_report_q1_2026.pdf",
+          "pages": [
+            14
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q12",
+      "category": "cross_document",
+      "answerable": true,
+      "question": "What remote-work arrangement was described in the employee handbook, and what change did leadership approve for Q3 2026?",
+      "expected_answer": "The handbook describes eligible employees as being able to work remotely up to 3 days per week, subject to manager approval. In the March 5 leadership meeting, leadership approved an updated policy allowing up to 4 remote days per week from Q3 2026, with Tuesday remaining the company-wide mandatory in-office day. Department heads may set additional in-office requirements with HR approval.",
+      "expected_sources": [
+        {
+          "file": "company_handbook.pdf",
+          "pages": [
+            4,
+            5
+          ]
+        },
+        {
+          "file": "meeting_notes.pdf",
+          "pages": [
+            6,
+            7
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q13",
+      "category": "cross_document",
+      "answerable": true,
+      "question": "What was NovaTech's ARR in fiscal year 2025 according to the handbook, and what ARR did the Q1 2026 report record?",
+      "expected_answer": "The handbook states that NovaTech achieved approximately €17 million in ARR in fiscal year 2025. The Q1 2026 report records ARR of €18.2 million at quarter-end. The figures refer to different reporting periods and should not be treated as the same measurement date.",
+      "expected_sources": [
+        {
+          "file": "company_handbook.pdf",
+          "pages": [
+            1,
+            2
+          ]
+        },
+        {
+          "file": "quarterly_report_q1_2026.pdf",
+          "pages": [
+            1,
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q14",
+      "category": "cross_document",
+      "answerable": true,
+      "question": "What budget did leadership approve for NovaTech Copilot, and what release stages and target timing does the Q1 2026 report describe?",
+      "expected_answer": "The March 5 leadership meeting notes record approval of a €1.2 million budget for NovaTech Copilot. The Q1 2026 report lists Copilot in the Q3 2026 roadmap as being in the design phase, with an initial internal alpha targeted for July 2026 and a customer beta planned for September 2026. These are the budget and timing details stated in the respective documents.",
+      "expected_sources": [
+        {
+          "file": "meeting_notes.pdf",
+          "pages": [
+            8
+          ]
+        },
+        {
+          "file": "quarterly_report_q1_2026.pdf",
+          "pages": [
+            6
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q15",
+      "category": "cross_document",
+      "answerable": true,
+      "question": "How did ProjectHub and Insight contribute to Q1 2026 revenue, and which product had the higher year-over-year growth?",
+      "expected_answer": "ProjectHub generated €3.36 million, representing 70% of Q1 2026 revenue, with 26% year-over-year growth. Insight generated €1.20 million, representing 25% of revenue, with 31% year-over-year growth. Insight had the higher year-over-year growth rate.",
+      "expected_sources": [
+        {
+          "file": "quarterly_report_q1_2026.pdf",
+          "pages": [
+            2
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q16",
+      "category": "unanswerable",
+      "answerable": false,
+      "question": "On what exact calendar date does the company pay its annual employee bonus?",
+      "expected_answer": "The provided documents do not specify an annual employee bonus payment date. The handbook mentions a €250 NovaStar Award bonus for quarterly award winners, but it does not state a company-wide annual bonus payment date.",
+      "expected_sources": [
+        {
+          "file": "company_handbook.pdf",
+          "pages": [
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q17",
+      "category": "unanswerable",
+      "answerable": false,
+      "question": "What was NovaTech's exact net profit after tax for Q1 2026?",
+      "expected_answer": "The Q1 2026 report provides operating income and operating expenses, but the provided report does not state an exact net profit after tax figure.",
+      "expected_sources": [
+        {
+          "file": "quarterly_report_q1_2026.pdf",
+          "pages": [
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Q18",
+      "category": "unanswerable",
+      "answerable": false,
+      "question": "What is CEO Sarah Chen's personal mobile phone number?",
+      "expected_answer": "The provided documents do not contain CEO Sarah Chen's personal mobile phone number.",
+      "expected_sources": []
+    },
+    {
+      "id": "Q19",
+      "category": "unanswerable",
+      "answerable": false,
+      "question": "What is the exact annual base salary of a specific backend engineer employed in the Munich office?",
+      "expected_answer": "The provided documents do not state the exact annual base salary of an individual backend engineer in the Munich office. They contain some general staffing and cost information, but not this employee-specific salary.",
+      "expected_sources": []
+    },
+    {
+      "id": "Q20",
+      "category": "unanswerable",
+      "answerable": false,
+      "question": "What is the CEO's residential street address?",
+      "expected_answer": "The provided documents do not state the CEO's residential street address.",
+      "expected_sources": []
+    }
+  ]
+}
