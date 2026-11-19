@@ -8,15 +8,19 @@ import chromadb
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 CHROMA_DIR = PROJECT_ROOT / "chroma_db"
 
-COLLECTION_NAME = "novatech_documents"
-EMBEDDING_MODEL = "nomic-embed-text"
-TOP_K = 5
-MAX_DISTANCE = 0.37
+from config import (
+    COLLECTION_NAME,
+    EMBEDDING_BASE_URL,
+    EMBEDDING_MODEL,
+    LLM_API_KEY,
+    TOP_K,
+    MAX_DISTANCE,
+)
 
 
 ollama_client = OpenAI(
-    base_url="http://localhost:11434/v1",
-    api_key="ollama",
+    base_url=EMBEDDING_BASE_URL,
+    api_key=LLM_API_KEY,
 )
 
 

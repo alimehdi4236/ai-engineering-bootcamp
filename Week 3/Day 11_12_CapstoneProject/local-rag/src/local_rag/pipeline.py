@@ -50,7 +50,14 @@ def main() -> None:
         print("Finish reason:", result["finish_reason"])
 
     except ValueError as error:
-        print(f"Input error: {error}")
+        print("\nExecution Metrics:")
+        print("Model:", result["model"])
+        print("Thinking enabled:", result["thinking"])
+        print("Retrieval time:", result["retrieval_time_seconds"], "seconds")
+        print("Generation time:", result["generation_time_seconds"], "seconds")
+        print("Prompt tokens:", result["prompt_tokens"])
+        print("Completion tokens:", result["completion_tokens"])
+        print("Finish reason:", result["finish_reason"])
 
 
 if __name__ == "__main__":

@@ -11,15 +11,19 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DOCUMENTS_DIR = PROJECT_ROOT / "documents"
 CHROMA_DIR = PROJECT_ROOT / "chroma_db"
 
-CHUNK_SIZE = 1000
-CHUNK_OVERLAP = 150
-BATCH_SIZE = 32
-
-EMBEDDING_MODEL = "nomic-embed-text"
+from config import (
+    EMBEDDING_BASE_URL,
+    EMBEDDING_MODEL,
+    LLM_API_KEY,
+    CHUNK_SIZE,
+    CHUNK_OVERLAP,
+    BATCH_SIZE,
+    COLLECTION_NAME,
+)
 
 ollama_client = OpenAI(
-    base_url="http://localhost:11434/v1",
-    api_key="ollama",
+    base_url=EMBEDDING_BASE_URL,
+    api_key=LLM_API_KEY,
 )
 
 
@@ -96,7 +100,7 @@ def store_chunks(chunks: list[dict]) -> chromadb.Collection:
     chroma_client = chromadb.PersistentClient(path=str(CHROMA_DIR))
 
     collection = chroma_client.get_or_create_collection(
-        name="novatech_documents",
+        name= COLLECTION_NAME,
         metadata={"hnsw:space": "cosine"},
     )
 

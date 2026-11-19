@@ -1,21 +1,31 @@
-
+import time
 from openai import OpenAI
+
+from config import (
+    LLM_BASE_URL,
+    LLM_API_KEY,
+    LLM_MODEL,
+    TEMPERATURE,
+    REASONING_EFFORT,
+    MAX_TOKENS,
+    TOKEN_LIMIT_PARAM,
+)
 
 from local_rag.retrieve import retrieve
 
-
-GENERATION_MODEL = "qwen3.5:4b-q4_K_M"
+GENERATION_MODEL = LLM_MODEL
 
 ollama_client = OpenAI(
-    base_url="http://localhost:11434/v1",
-    api_key="ollama",
+    base_url=LLM_BASE_URL,
+    api_key=LLM_API_KEY,
 )
-
 
 def generate_answer(question: str) -> dict:
     """Generate an answer grounded in retrieved document evidence."""
 
+    retrieval_start = time.perf_counter()
     chunks = retrieve(question)
+    retrieval_time = time.perf_counter() - retrieval_start
 
     if not chunks:
         return {
@@ -24,6 +34,11 @@ def generate_answer(question: str) -> dict:
             "sources": [],
             "model": GENERATION_MODEL,
             "finish_reason": None,
+            "thinking": REASONING_EFFORT != "none",
+            "retrieval_time_seconds": round(retrieval_time, 2),
+            "generation_time_seconds": 0,
+            "prompt_tokens": None,
+            "completion_tokens": None,
         }
 
     context_parts = []
@@ -68,6 +83,7 @@ USER QUESTION:
 Provide an answer grounded in the evidence.
 Include source document names and page numbers.
 """
+    start_time = time.perf_counter()
 
     response = ollama_client.chat.completions.create(
         model=GENERATION_MODEL,
@@ -75,8 +91,12 @@ Include source document names and page numbers.
             {"role": "system", "content": system_prompt},
             {"role": "user", "content": user_prompt},
         ],
-        temperature=0.1,
+        temperature=TEMPERATURE,
+        reasoning_effort=REASONING_EFFORT,
+        **{TOKEN_LIMIT_PARAM: MAX_TOKENS}
+
     )
+    generation_time = time.perf_counter() - start_time
 
     answer = response.choices[0].message.content
 
@@ -89,12 +109,19 @@ Include source document names and page numbers.
         for chunk in chunks
     ]
 
+    usage = response.usage
+
     return {
         "question": question,
         "answer": answer,
         "sources": sources,
         "model": GENERATION_MODEL,
         "finish_reason": response.choices[0].finish_reason,
+        "thinking": REASONING_EFFORT != "none",
+        "generation_time_seconds": round(generation_time, 2),
+        "prompt_tokens": usage.prompt_tokens if usage else None,
+        "completion_tokens": usage.completion_tokens if usage else None,
+        "retrieval_time_seconds": round(retrieval_time, 2),
     }
 
 

@@ -1,104 +1,151 @@
-
 # AGENTS.md — Local RAG Capstone
 
-## Project objective
-Build a local document question-answering RAG pipeline
-for five PDF documents from a fictional technology company.
+## Project Objective
 
-The application must run locally and provide answers
-grounded in retrieved document evidence.
+Build a local document question-answering RAG pipeline for five PDF documents from a fictional technology company.
 
-## Technology
+The application must run locally and generate answers grounded in retrieved document evidence. The project is part of the Accenture AI Engineering Bootcamp Day 11–12 capstone.
+
+## Technology Stack
+
 - Python 3.12
-- uv for dependency and environment management
-- Ollama for local model inference
+- `uv` for dependency and environment management
+- Ollama for local LLM inference
 - OpenAI-compatible Python client
 - ChromaDB for vector storage
-- LangChain text splitters
-- pypdf for PDF extraction
+- LangChain text splitters for document chunking
+- pypdf for PDF text extraction
 
-## Project architecture
-- config.py: Central configuration and provider selection
-- ingest.py: PDF extraction, chunking, embedding and storage
-- retrieve.py: Retrieve relevant chunks and evidence
-- generate.py: Generate grounded answers using an LLM
-- pipeline.py: Connect retrieval and generation
-- benchmark.py: Compare at least two models
+## Project Architecture
 
-## Current project structure
-- documents/: Source PDF documents.
-- src/local_rag/: Python package directory.
-- benchmark.py: Initial local model benchmark.
-- test_api.py: Ollama API verification.
-- benchmark_results.json: Saved initial benchmark results.
-- decision_log.md: Student-maintained experiment notes and decisions.
-- README.md: Project documentation.
-- pyproject.toml: Project configuration and dependencies.
-- uv.lock: Locked dependency versions.
+The application code is maintained in `src/local_rag/`.
 
-New pipeline components will be added as development progresses.
+- `config.py` (project root): Central configuration for the LLM provider, model, embedding model, retrieval settings and generation parameters.
+- `src/local_rag/ingest.py`: PDF extraction, text chunking, embedding generation and ChromaDB storage.
+- `src/local_rag/retrieve.py`: Embeds user questions and retrieves relevant document chunks.
+- `src/local_rag/generate.py`: Generates answers using retrieved evidence and the configured LLM.
+- `src/local_rag/pipeline.py`: Connects the retrieval and generation stages into one workflow.
+- `benchmark.py`: Compares local models.
+- `evaluate_pipeline.py`: Runs the pipeline against the test-question dataset and saves structured results.
 
-## Development rules
+## Project Structure
+
+- `documents/`: Source PDF documents.
+- `src/local_rag/`: Python application package.
+- `config.py`: Central project configuration.
+- `benchmark.py`: Model benchmarking script.
+- `test_api.py`: Ollama API verification script.
+- `evaluate_pipeline.py`: Pipeline evaluation script.
+- `test_questions.json`: Test-question dataset.
+- `benchmark_results.json`: Saved model benchmark results.
+- `pipeline_outputs.json`: Saved pipeline evaluation results, including manually reviewed ratings.
+- `decision_log.md`: Student-maintained experiment notes and technical decisions.
+- `README.md`: Setup, execution and project documentation.
+- `pyproject.toml`: Project metadata and dependencies.
+- `uv.lock`: Locked dependency versions.
+- `chroma_db/`: Locally generated vector database; rebuildable and not submitted.
+
+## Development Rules
+
 1. Work one stage at a time.
 2. Run and verify each stage before proceeding.
-3. Preserve working code when adding new functionality.
-4. Keep configuration in config.py.
-5. Do not hardcode credentials or API keys.
+3. Preserve working code when adding functionality.
+4. Keep model and pipeline settings centralized in `config.py`.
+5. Do not hardcode real credentials or API keys.
 6. Use local Ollama models for the Day 11 pipeline.
-7. Never use cloud-tagged Ollama models.
-8. Do not commit .env, .venv or chroma_db.
-9. Keep generated evidence and benchmark outputs reproducible.
-10. Every reported measurement must come from a saved output file.
-11. Do not invent benchmark results or evaluation scores.
+7. Do not use cloud-tagged Ollama models.
+8. Do not commit `.env`, `.venv/` or `chroma_db/`.
+9. Keep benchmark and evaluation outputs reproducible.
+10. Every reported experimental measurement must be traceable to a saved output file.
+11. Do not invent benchmark results, evaluation scores or performance measurements.
 12. Keep functions focused and handle errors explicitly.
+13. Do not overwrite manually reviewed evaluation results without first preserving the ratings.
+14. Keep document evidence and generated answers distinguishable.
 
-## Required artifacts
-- benchmark_results.json
-- test_questions.json
-- pipeline_outputs.json
-- decision_log.md
-- README.md
-- AGENTS.md
+## Required Artifacts
+
+- `benchmark_results.json`
+- `test_questions.json`
+- `pipeline_outputs.json`
+- `decision_log.md`
+- `README.md`
+- `AGENTS.md`
 
 ## Execution
-Run commands from the project root.
-Use uv to run Python scripts:
 
-uv run python <script_name>.py
+Run all commands from the project root.
+
+Install project dependencies:
+
+```powershell
+uv sync
+```
 
 Verify the Ollama API:
 
+```powershell
 uv run python test_api.py
+```
 
-Run the initial model benchmark:
+Rebuild the vector database from the source PDFs:
 
+```powershell
+uv run python -m local_rag.ingest
+```
+
+Run the interactive generation module:
+
+```powershell
+uv run python -m local_rag.generate
+```
+
+Run the end-to-end RAG assistant:
+
+```powershell
+uv run python -m local_rag.pipeline
+```
+
+Run the model benchmark:
+
+```powershell
 uv run python benchmark.py
+```
 
-As the pipeline scripts are implemented, run the relevant stages:
+Run the complete test-question evaluation:
 
-uv run python ingest.py
-uv run python retrieve.py
-uv run python generate.py
-uv run python pipeline.py
+```powershell
+uv run python evaluate_pipeline.py
+```
 
-Run model comparisons:
+**Important:** `evaluate_pipeline.py` writes to `pipeline_outputs.json`. Running it again replaces the existing output file. Preserve or back up manually reviewed `passed` and `rating_note` fields before regenerating the results.
 
-uv run python benchmark.py
+Only run a command after its corresponding script and dependencies are available.
 
-Only run a command after its corresponding script has been created.
+## Validation Checklist
 
-## Validation
 - Check extracted PDF text before chunking.
-- Verify embedding dimensions are consistent.
+- Verify embedding generation and dimensions.
 - Verify ChromaDB collection counts after ingestion.
-- Inspect retrieved evidence for every test question.
-- Check that answers are supported by retrieved sources.
+- Inspect retrieved evidence for test questions.
+- Check that generated answers are supported by retrieved sources.
 - Verify refusal behaviour for unanswerable questions.
-- Record actual model finish reasons and token usage.
-- Validate generated JSON files before submission.
+- Record model name, thinking state and actual finish reason.
+- Record available token and timing measurements.
+- Validate generated JSON files.
+- Review manual answer ratings against the actual generated answers.
 
-## AI assistance
-AI coding assistants may help with implementation.
-The student must understand and explain every line of code.
-The decision log and Day 12 evaluation report must be
-written by the student based on actual experiments.
+## Local-Only and Security Requirements
+
+- The Day 11 pipeline must use a local model through Ollama.
+- Do not use cloud-tagged Ollama models.
+- Do not expose proprietary document content to external providers during the local-only evaluation.
+- Keep credentials outside source code.
+- Do not commit local databases, virtual environments or secrets.
+
+## AI Assistance
+
+AI coding assistants may help with implementation, debugging, explanations and documentation.
+
+The student must understand and be able to explain the implementation and technical decisions.
+
+The decision log and Day 12 evaluation report must reflect the student's own observations and actual experiments. AI assistance must be disclosed in the README.

@@ -37,8 +37,13 @@ def main() -> None:
                 "generated_answer": pipeline_result["answer"],
                 "retrieved_sources": pipeline_result["sources"],
                 "model": pipeline_result["model"],
+                "thinking": pipeline_result["thinking"],
                 "finish_reason": pipeline_result["finish_reason"],
                 "time_seconds": round(elapsed, 2),
+                "retrieval_time_seconds": pipeline_result["retrieval_time_seconds"],
+                "generation_time_seconds": pipeline_result["generation_time_seconds"],
+                "prompt_tokens": pipeline_result["prompt_tokens"],
+                "completion_tokens": pipeline_result["completion_tokens"],
                 "status": "success",
             }
 
@@ -50,8 +55,13 @@ def main() -> None:
                 "generated_answer": None,
                 "retrieved_sources": [],
                 "model": None,
+                "thinking": None,
                 "finish_reason": "error",
                 "time_seconds": round(elapsed, 2),
+                "retrieval_time_seconds": None,
+                "generation_time_seconds": None,
+                "prompt_tokens": None,
+                "completion_tokens": None,
                 "status": "error",
                 "error": str(error),
             }
