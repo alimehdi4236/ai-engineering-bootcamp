@@ -22,12 +22,16 @@ ollama_client = OpenAI(
 )
 
 
-def generate_answer(question: str) -> dict:
+def generate_answer(question: str, chunks: list[dict] | None = None) -> dict:
     """Generate an answer grounded in retrieved document evidence."""
 
     retrieval_start = time.perf_counter()
-    chunks = retrieve(question)
-    retrieval_time = time.perf_counter() - retrieval_start
+
+    if chunks is None:
+        chunks = retrieve(question)
+        retrieval_time = time.perf_counter() - retrieval_start
+    else:
+        retrieval_time = 0.0
 
     # Handle questions where no relevant chunks were retrieved.
     if not chunks:
