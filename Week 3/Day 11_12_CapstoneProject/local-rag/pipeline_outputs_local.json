@@ -1,0 +1,1395 @@
+{
+  "dataset_name": "NovaTech Local RAG Evaluation",
+  "total_questions": 20,
+  "successful_runs": 20,
+  "failed_runs": 0,
+  "results": [
+    {
+      "id": "Q01",
+      "category": "direct_factual",
+      "answerable": true,
+      "question": "How many days of paid annual leave do full-time employees receive and how does this differ for part-time employees?",
+      "expected_answer": "Full-time employees receive 25 days of paid time off per calendar year in addition to public holidays observed at their office location. Part-time employees receive PTO on a pro-rata basis.",
+      "expected_sources": [
+        {
+          "file": "company_handbook.pdf",
+          "pages": [
+            5
+          ]
+        }
+      ],
+      "generated_answer": "According to the company handbook, all full-time employees receive twenty-five (25) days of paid time off (PTO) per calendar year. Part-time employees receive PTO on a pro-rata basis (company_handbook.pdf, page 5).",
+      "retrieved_sources": [
+        {
+          "source": "company_handbook.pdf",
+          "page": 5,
+          "distance": 0.22802895307540894
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 5,
+          "distance": 0.30409544706344604
+        }
+      ],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": "stop",
+      "time_seconds": 174.97,
+      "status": "success",
+      "passed": false,
+      "rating_note": "Correct leave entitlement and pro-rata rule but it neglected that annual leave is additional to public holidays.",
+      "retrieved_context": [
+        "Team Days\n\nEach team must designate at least one (1) mandatory in-office day per\nweek for collaborative work. These team days are set by the team lead and\ncommunicated at the start of each quarter.\n\n\n5. Leave and Time-Off Policy\n\nAnnual Leave (Paid Time Off)\n\nAll full-time employees receive twenty-five (25) days of paid time off (PTO) per\ncalendar year, in addition to public holidays observed at their respective office\nlocation. Part-time employees receive PTO on a pro-rata basis.\n\nPTO accrues monthly (2.083 days per month). Employees may use PTO before it\nhas fully accrued, subject to manager approval. The maximum negative PTO\nbalance permitted is five (5) days.\n\nCarryover: Unused PTO may be carried over to the following calendar year, up\nto a maximum of five (5) days. Carried-over days must be used by March 31\nof the following year. Any unused carried-over days beyond this date will be\nforfeited unless prohibited by local employment law.",
+        "PTO requests should be submitted via NovaHR at least two (2) weeks in\nadvance for absences of three (3) or more consecutive days, and at least three\n(3) business days in advance for shorter absences. Managers may decline\nrequests during critical business periods, provided reasonable alternative dates\nare offered.\n\nSick Leave\n\nEmployees are entitled to ten (10) paid sick days per calendar year. A medical\ncertificate is required for absences exceeding three (3) consecutive working\ndays. Sick days do not carry over between calendar years.\n\nIn Germany, statutory sick pay provisions apply after the company sick leave\nentitlement is exhausted. Employees in Portugal and the United States should\nrefer to the country-specific addendum for details on statutory sick leave\nprovisions."
+      ],
+      "reconstructed_context_sources": [
+        {
+          "source": "company_handbook.pdf",
+          "page": 5,
+          "distance": 0.22802895307540894
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 5,
+          "distance": 0.30409544706344604
+        }
+      ],
+      "retrieval_context_reconstructed": true
+    },
+    {
+      "id": "Q02",
+      "category": "direct_factual",
+      "answerable": true,
+      "question": "What is the standard working week at NovaTech, including the exception for employees on German contracts?",
+      "expected_answer": "The standard work week is 40 hours, or 38.5 hours for employees on German contracts.",
+      "expected_sources": [
+        {
+          "file": "company_handbook.pdf",
+          "pages": [
+            3
+          ]
+        }
+      ],
+      "generated_answer": "According to the employee handbook, the standard working week at NovaTech Solutions is 40 hours. For employees on German contracts, the standard work week is 38.5 hours. (company_handbook.pdf, page 3)",
+      "retrieved_sources": [
+        {
+          "source": "company_handbook.pdf",
+          "page": 3,
+          "distance": 0.15640515089035034
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 4,
+          "distance": 0.2874588370323181
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 6,
+          "distance": 0.2903928756713867
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 8,
+          "distance": 0.30765002965927124
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 1,
+          "distance": 0.30981123447418213
+        }
+      ],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": "stop",
+      "time_seconds": 121.67,
+      "status": "success",
+      "passed": true,
+      "rating_note": "It correctly identify and says both standard working hours and the German-contract exception.",
+      "retrieved_context": [
+        "Austin,             401 Congress Avenue,            Sales, Marketing,\n Texas, USA          Suite 1400, Austin, TX          Customer Success               ~70\n                     78701                           (Americas)\n\nStandard Working Hours\n\nNovaTech Solutions operates on a flexible schedule model. The standard work\nweek is 40 hours (38.5 hours for employees on German contracts). All employees\nmust be available during the core collaboration window of 10:00–15:00 CET\n(Central European Time) on working days, unless otherwise agreed with their\nmanager. Outside these core hours, employees may arrange their schedule to\nsuit personal preferences and local requirements.\n\nEmployees in the Austin office should note that 10:00–15:00 CET corresponds to\n03:00–08:00 CST. A modified core window of 09:00–14:00 CST applies to Austin-\nbased employees who do not regularly collaborate with European teams. Austin\nemployees on cross-regional teams should negotiate availability with their\nmanager.",
+        "4. Remote and Hybrid Work Policy\n\n\nNovaTech Solutions supports hybrid work arrangements. Employees in eligible\nroles may work remotely for up to three (3) days per week, subject to\nmanager approval.\n\nEligibility\n\nAll employees who have completed their probationary period (six months) are\neligible for hybrid work unless their role requires physical presence (e.g., office\nmanagement, facilities, on-site IT support). Employees still within their\nprobationary period may work remotely for up to one (1) day per week with\nmanager approval.\n\nApproval Process\n\n   1. The employee submits a hybrid work request through the NovaHR portal,\n      specifying their preferred remote days.\n   2. The manager reviews the request within five (5) business days, considering\n      team coverage needs, collaboration requirements, and role suitability.\n   3. Approved arrangements are documented in NovaHR and reviewed\n      quarterly.\n\nRequirements for Remote Work",
+        "Volunteer\n  Leave                    2 days per year                        Pre-approved volunteer activitiesaligned with company CSR goals\n\n                                                              Available after 5 years of continuous\n  Sabbatical             Up to 3 months unpaid                employment; requires VP-level\n                                                              approval\n\n\n6. Expense and Travel Policy\n\n\nNovaTech Solutions reimburses reasonable business expenses incurred in the\ncourse of employment. All expenses must be submitted through the\nNovaExpense platform within thirty (30) calendar days of being incurred.\nExpenses submitted after this deadline may not be reimbursed.\n\nMeals and Incidentals\n\n\n  Category                                                                                   Daily Limit\n\n  Domestic travel (within country of employment)                             €25 per day",
+        "Expense Policy Violations\n\nRepeated violations of the expense policy, including late submissions, missing\nreceipts, or exceeding limits without pre-approval, may result in suspension of\nthe employee's corporate credit card and disciplinary action in accordance with\nSection 14.\n\n\n7. Onboarding Process\n\n\nNovaTech Solutions is committed to providing every new employee with a\nstructured, supportive onboarding experience. Our onboarding program runs for\nthe first ninety (90) calendar days of employment and consists of three\nphases.\n\nPhase 1: Pre-Boarding (Before Day 1)\n\nBefore the new employee's start date, the following steps are completed:",
+        "NovaTech Solutions — Employee\nHandbook\n\n\n\nVersion 4.2 — Effective January 1, 2026 Human Resources Department\nLast Updated: January 15, 2026\n\n\nTable of Contents\n\n\n   1. Welcome and Company Overview\n   2. Mission, Vision, and Values\n   3. Office Locations and Working Hours\n   4. Remote and Hybrid Work Policy\n   5. Leave and Time-Off Policy\n   6. Expense and Travel Policy\n   7. Onboarding Process\n   8. Performance Management\n   9. Professional Development\n 10. Code of Conduct\n 11. Information Technology Policies\n 12. Data Protection and Confidentiality\n 13. Health and Safety\n 14. Grievance and Disciplinary Procedures\n 15. Handbook Acknowledgment\n\n\n1. Welcome and Company Overview"
+      ],
+      "reconstructed_context_sources": [
+        {
+          "source": "company_handbook.pdf",
+          "page": 3,
+          "distance": 0.15640515089035034
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 4,
+          "distance": 0.2874588370323181
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 6,
+          "distance": 0.2903928756713867
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 8,
+          "distance": 0.30765002965927124
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 1,
+          "distance": 0.30981123447418213
+        }
+      ],
+      "retrieval_context_reconstructed": true
+    },
+    {
+      "id": "Q03",
+      "category": "direct_factual",
+      "answerable": true,
+      "question": "What is the Enterprise uptime SLA stated in the product guide?",
+      "expected_answer": "The Enterprise tier has a 99.95% uptime SLA, measured monthly.",
+      "expected_sources": [
+        {
+          "file": "product_guide.pdf",
+          "pages": [
+            13,
+            14
+          ]
+        }
+      ],
+      "generated_answer": "According to the product guide, the Enterprise uptime SLA is 99.95%. (product_guide.pdf, page 14)",
+      "retrieved_sources": [
+        {
+          "source": "product_guide.pdf",
+          "page": 14,
+          "distance": 0.2687704563140869
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 13,
+          "distance": 0.27892690896987915
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 14,
+          "distance": 0.34643983840942383
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 13,
+          "distance": 0.3653443455696106
+        }
+      ],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": "stop",
+      "time_seconds": 251.92,
+      "status": "success",
+      "passed": false,
+      "rating_note": "Correct uptime percentage but it missed the monthly measurement period.",
+      "retrieved_context": [
+        "Tier                Uptime SLA     Maximum Monthly Downtime       Measurement\n\n  Enterprise         99.95%               ~21 minutes                                       Calendar month\n\n7.2 SLA Credits\n\nIf NovaTech fails to meet the uptime commitment, customers are eligible for\nservice credits:\n\n\n  Uptime Achieved     Starter Credit     Professional Credit     Enterprise Credit\n\n  99.0% - 99.49%           5%                         —                                     —\n\n  98.0% - 99.89%           —                           10%                                 —\n\n  99.9% - 99.94%           —                           —                                     10%\n\n  95.0% - 98.99%           —                           15%                                 —\n\n  99.0% - 99.89%           —                           —                                     20%\n\n  Below 95.0%               10%                       25%                                 30%",
+        "7.1 Uptime Commitments\n\n\n  Tier                Uptime SLA     Maximum Monthly Downtime       Measurement\n\n  Starter              99.5%                 ~3 hours 39 minutes                          Calendar month\n\n  Professional      99.9%                 ~43 minutes                                       Calendar month",
+        "Low (question / enhancement)              72 hours        24 hours                 8 hours\n\n\nEnterprise customers receive 24/7 support with a dedicated support manager.\nProfessional customers receive support during extended business hours\n(06:00 - 22:00 CET, Monday to Friday). Starter customers receive support during\nstandard business hours (09:00 - 18:00 CET, Monday to Friday).",
+        "Alert minimum interval                    1 hour         15 min                    5 min\n\n  Alert history retention                      30 days       90 days                  365 days\n\n  Row-level security                            No               Yes                         Yes\n\n  Data model versioning                     No               Yes                         Yes\n\n  Streaming connectors (Kafka,\n  Kinesis)                                            No               No                          Yes\n\n  Custom data residency                    No               No                          Yes\n\n  Dedicated compute resources         No               No                          Yes\n\n\n7. Service Level Agreements\n\n\nNovaTech provides uptime guarantees based on tier. Uptime is measured\nmonthly and excludes scheduled maintenance windows (announced at least 72\nhours in advance, limited to 4 hours per month).\n\n7.1 Uptime Commitments"
+      ],
+      "reconstructed_context_sources": [
+        {
+          "source": "product_guide.pdf",
+          "page": 14,
+          "distance": 0.2687704563140869
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 13,
+          "distance": 0.27892690896987915
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 14,
+          "distance": 0.34643983840942383
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 13,
+          "distance": 0.3653443455696106
+        }
+      ],
+      "retrieval_context_reconstructed": true
+    },
+    {
+      "id": "Q04",
+      "category": "direct_factual",
+      "answerable": true,
+      "question": "How many pre-built widgets are included in the Shared Analytics Dashboard in ProjectHub?",
+      "expected_answer": "The ProjectHub Shared Analytics Dashboard includes eight pre-built widgets: task burndown, sprint velocity, resource utilization, overdue tasks, project health score, milestone tracker, risk heatmap, and team workload.",
+      "expected_sources": [
+        {
+          "file": "product_guide.pdf",
+          "pages": [
+            9
+          ]
+        }
+      ],
+      "generated_answer": "Based on the provided documents, the Shared Analytics Dashboard in ProjectHub includes **8** pre-built widgets. This is explicitly listed under the NovaTech ProjectHub section and confirmed in the Key Differences Summary table comparing ProjectHub and Insight versions.\n\n*   (product_guide.pdf, page 9)\n*   (product_guide.pdf, page 10)",
+      "retrieved_sources": [
+        {
+          "source": "product_guide.pdf",
+          "page": 9,
+          "distance": 0.21026623249053955
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 9,
+          "distance": 0.21939575672149658
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 9,
+          "distance": 0.27525895833969116
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 10,
+          "distance": 0.28869956731796265
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 10,
+          "distance": 0.3482822775840759
+        }
+      ],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": "stop",
+      "time_seconds": 169.43,
+      "status": "success",
+      "passed": true,
+      "rating_note": "Correctly identifies eight pre-built widgets.",
+      "retrieved_context": [
+        "• All 8 ProjectHub widgets plus the full library of 30+ visualization types\n    • Custom widget creation using the drag-and-drop builder or NEL\n      expressions\n    • Data scope: Can combine ProjectHub data with any connected data\n      source (databases, SaaS platforms, files)\n    • Refresh interval: Matches the connector refresh rates (see Data Connectors\n      section above)\n    • Sharing: Dashboards can be shared with any user in the organization,\n      embedded externally, or published as public links (Enterprise only)\n    • Export: PNG, PDF, XLSX, and scheduled email distribution\n    • Row-level security applies to shared dashboards, ensuring each viewer sees\n      only their authorized data\n    • Interactive drill-down: Click on any data point to explore underlying\n      records (not available in the ProjectHub version)\n    • Cross-dashboard linking: Create navigation paths between related\n      dashboards",
+        "4.1 In NovaTech ProjectHub\n\nThe Shared Analytics Dashboard in ProjectHub provides project-focused analytics:\n\n    • 8 pre-built widgets: Task burndown, sprint velocity, resource utilization,\n      overdue tasks, project health score, milestone tracker, risk heatmap, team\n      workload\n    • Customization: Users can rearrange widgets and adjust date ranges, but\n      cannot create custom widgets\n    • Data scope: Limited to ProjectHub data only (tasks, sprints, time entries,\n      resources)\n    • Refresh interval: Every 30 minutes\n    • Sharing: Dashboards can be shared with project members via link. View-\n      only access for stakeholders outside the project (requires Professional or\n      Enterprise tier).\n    • Export: Screenshot (PNG) and PDF export of the dashboard view\n    • Maximum of 3 shared dashboards per project (Starter), 10 per project\n      (Professional), unlimited (Enterprise)\n\n4.2 In NovaTech Insight",
+        "4.2 In NovaTech Insight\n\nThe Shared Analytics Dashboard in Insight is a superset of the ProjectHub\nversion:",
+        "4.3 Key Differences Summary\n\n\n\n  Capability                      ProjectHubVersion                       Insight Version\n\n\n  Pre-built widgets                8                                    8 + 30+ visualization types\n\n  Custom widgets                 No                                  Yes\n\n  Data sources                     ProjectHub only              All connected sources\n\n\n  Refresh interval                 30 minutes                     Varies by connector (up to real-time)\n\n\n  Interactive drill-down        No                                  Yes\n\n  Row-level security             No                                  Yes\n\n  Embedding                        No                                  Yes (Professional and Enterprise)\n\n  Scheduled distribution       No                                  Yes\n\n  Cross-dashboard\n  linking                                No                                  Yes",
+        "Cross-dashboard\n  linking                                No                                  Yes\n\n\nWhen both products are licensed together, the Insight version automatically\ningests all ProjectHub data via the native connector, and users can access the\nenhanced dashboard capabilities for their project data without any additional\nconfiguration.\n\n\n5. Pricing and Plans\n\n\nNovaTech offers three pricing tiers, applicable to both ProjectHub and Insight.\nCustomers can license each product independently or together at a bundled rate.\n\n5.1 Per-Product Pricing\n\n\n  Tier               Monthly Price                   Annual Price (per user,                      Minimum\n                      (per user)                     billed annually)                             Users\n\n  Starter             €29/user/month            €24/user/month                            5\n\n  Professional     €79/user/month            €66/user/month                            10"
+      ],
+      "reconstructed_context_sources": [
+        {
+          "source": "product_guide.pdf",
+          "page": 9,
+          "distance": 0.21026623249053955
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 9,
+          "distance": 0.21939575672149658
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 9,
+          "distance": 0.27525895833969116
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 10,
+          "distance": 0.28869956731796265
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 10,
+          "distance": 0.3482822775840759
+        }
+      ],
+      "retrieval_context_reconstructed": true
+    },
+    {
+      "id": "Q05",
+      "category": "direct_factual",
+      "answerable": true,
+      "question": "How many paid sick days are employees entitled to per calendar year?",
+      "expected_answer": "Employees are entitled to 10 paid sick days per calendar year.",
+      "expected_sources": [
+        {
+          "file": "company_handbook.pdf",
+          "pages": [
+            5
+          ]
+        }
+      ],
+      "generated_answer": "Employees are entitled to ten (10) paid sick days per calendar year (company_handbook.pdf, page 5).",
+      "retrieved_sources": [
+        {
+          "source": "company_handbook.pdf",
+          "page": 5,
+          "distance": 0.23291265964508057
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 5,
+          "distance": 0.30160093307495117
+        }
+      ],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": "stop",
+      "time_seconds": 123.05,
+      "status": "success",
+      "passed": true,
+      "rating_note": "Correct sick-day entitlement",
+      "retrieved_context": [
+        "PTO requests should be submitted via NovaHR at least two (2) weeks in\nadvance for absences of three (3) or more consecutive days, and at least three\n(3) business days in advance for shorter absences. Managers may decline\nrequests during critical business periods, provided reasonable alternative dates\nare offered.\n\nSick Leave\n\nEmployees are entitled to ten (10) paid sick days per calendar year. A medical\ncertificate is required for absences exceeding three (3) consecutive working\ndays. Sick days do not carry over between calendar years.\n\nIn Germany, statutory sick pay provisions apply after the company sick leave\nentitlement is exhausted. Employees in Portugal and the United States should\nrefer to the country-specific addendum for details on statutory sick leave\nprovisions.",
+        "Team Days\n\nEach team must designate at least one (1) mandatory in-office day per\nweek for collaborative work. These team days are set by the team lead and\ncommunicated at the start of each quarter.\n\n\n5. Leave and Time-Off Policy\n\nAnnual Leave (Paid Time Off)\n\nAll full-time employees receive twenty-five (25) days of paid time off (PTO) per\ncalendar year, in addition to public holidays observed at their respective office\nlocation. Part-time employees receive PTO on a pro-rata basis.\n\nPTO accrues monthly (2.083 days per month). Employees may use PTO before it\nhas fully accrued, subject to manager approval. The maximum negative PTO\nbalance permitted is five (5) days.\n\nCarryover: Unused PTO may be carried over to the following calendar year, up\nto a maximum of five (5) days. Carried-over days must be used by March 31\nof the following year. Any unused carried-over days beyond this date will be\nforfeited unless prohibited by local employment law."
+      ],
+      "reconstructed_context_sources": [
+        {
+          "source": "company_handbook.pdf",
+          "page": 5,
+          "distance": 0.23291265964508057
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 5,
+          "distance": 0.30160093307495117
+        }
+      ],
+      "retrieval_context_reconstructed": true
+    },
+    {
+      "id": "Q06",
+      "category": "detailed",
+      "answerable": true,
+      "question": "What encryption standards apply to Confidential data at rest and in transit, and how often are encryption keys rotated?",
+      "expected_answer": "Confidential data at rest must use AES-256 or an equivalent algorithm approved by the Security Team. Confidential data transmitted across networks must use TLS 1.3. Encryption keys are managed through a centralized KMS with automated rotation every 90 days.",
+      "expected_sources": [
+        {
+          "file": "security_policy.pdf",
+          "pages": [
+            3,
+            8,
+            9
+          ]
+        }
+      ],
+      "generated_answer": "Based on the provided documents, the encryption standards and key rotation policies for Confidential data are as follows:\n\n**Encryption Standards**\n*   **At Rest:** Confidential data must be encrypted using AES-256 (security_policy.pdf, page 8; product_guide.pdf, page 24; security_policy.pdf, page 3).\n*   **In Transit:** Confidential data must be encrypted using TLS 1.3 (security_policy.pdf, page 3; security_policy.pdf, page 9; product_guide.pdf, page 24).\n\n**Key Rotation Frequency**\nThere is a discrepancy regarding the frequency of encryption key rotation between the two documents:\n*   The security policy states that keys are managed with automated rotation every **90 days** (security_policy.pdf, page 8).\n*   The product guide states that keys are managed via AWS KMS with automatic key rotation every **365 days** (product_guide.pdf, page 24).",
+      "retrieved_sources": [
+        {
+          "source": "security_policy.pdf",
+          "page": 8,
+          "distance": 0.21651536226272583
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 24,
+          "distance": 0.3309808373451233
+        },
+        {
+          "source": "security_policy.pdf",
+          "page": 3,
+          "distance": 0.33347970247268677
+        },
+        {
+          "source": "meeting_notes.pdf",
+          "page": 7,
+          "distance": 0.33729130029678345
+        },
+        {
+          "source": "security_policy.pdf",
+          "page": 9,
+          "distance": 0.34375500679016113
+        }
+      ],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": "stop",
+      "time_seconds": 356.74,
+      "status": "success",
+      "passed": true,
+      "rating_note": "Perfectly identifies the encryption standards and 90-day key rotation requirement while transparently reporting a conflicting 365-day statement.",
+      "retrieved_context": [
+        "5. Data Handling and Protection\n\n5.1 Encryption Standards\n\nAll Confidential and Restricted data stored at rest must be encrypted using\nAES-256 or an equivalent algorithm approved by the Security Team. Encryption\nkeys are managed through a centralized Key Management System (KMS) with\nautomated rotation every 90 days. Key access is limited to the KMS\nadministrators and is logged.",
+        "ISO 27001              Information Security ManagementSystem                                                        2021       September2025\n\n\n\n ISO 27701              Privacy Information Management                2023       September2025\n\n\n CSA STAR Level\n 2                             Cloud Security Alliance attestation             2022       November2025\n\n\n TISAX (AL2)            Trusted Information SecurityAssessment Exchange                                 2024       August 2025\n\n\nAudit reports are available to customers under NDA. Contact your account\nmanager or email security@novatech.io to request a copy.\n\n11.2 Encryption\n\n    • Data in transit: TLS 1.3 for all connections. TLS 1.2 supported for legacy\n       clients. HTTP connections are automatically redirected to HTTPS.\n    • Data at rest: AES-256 encryption for all stored data. Encryption keys are\n       managed via AWS KMS with automatic key rotation every 365 days.",
+        "Requirement         Public         Internal              Confidential       Restricted\n\nEncryption at             Not                                     Required               Required\nRest                      required                                (AES-256)              (AES-256)\n\nEncryption in\nTransit                    TLS 1.2+       TLS 1.2+               TLS 1.3                 TLS 1.3\n\n                                                                  Role-based +           Named-\nAccess Control      None             Role-based                   manager                individual +\n                                                                  approval               CISO approval\n\n\nAuthentication      N/A               SSO                      SSO + MFA            SSO + MFA +hardware token",
+        "• NIST SP 800-63B (2024 revision) explicitly recommends against periodic\n      password rotation when MFA is in place\n    • Frequent rotation leads to weaker passwords (employees use predictable\n      patterns, such as the current season and year followed by an exclamation\n      mark, changed to the next season at each rotation)\n    • Our MFA adoption is now at 100% across all systems following the mandate\n      last year\n    • The IT help desk spends roughly 15 hours per month on password reset\n      requests, mostly right after rotation deadlines\n\nMarcus's proposal: Extend password rotation from 90 days to 180 days, and\ninvest the saved IT support time into improving our identity management tooling.\nPasswords would still need to meet complexity requirements (16+ characters, no\nreuse of last 10 passwords) and any suspected compromise would trigger an\nimmediate forced reset.",
+        "All data transmitted across networks — whether internal or external — must be\nencrypted using TLS 1.3 for Confidential and Restricted data. TLS 1.2 is the\nminimum acceptable standard for Internal and Public data transmission. Legacy\nprotocols (SSL, TLS 1.0, TLS 1.1) are prohibited on all NovaTech systems.\nCertificate management is centralized, and all certificates must be issued by the\nNovaTech-approved Certificate Authority.\n\n5.2 Data Retention and Disposal\n\nNovaTech applies the following data retention schedule:"
+      ],
+      "reconstructed_context_sources": [
+        {
+          "source": "security_policy.pdf",
+          "page": 8,
+          "distance": 0.21651536226272583
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 24,
+          "distance": 0.3309808373451233
+        },
+        {
+          "source": "security_policy.pdf",
+          "page": 3,
+          "distance": 0.33347970247268677
+        },
+        {
+          "source": "meeting_notes.pdf",
+          "page": 7,
+          "distance": 0.33729130029678345
+        },
+        {
+          "source": "security_policy.pdf",
+          "page": 9,
+          "distance": 0.34375500679016113
+        }
+      ],
+      "retrieval_context_reconstructed": true
+    },
+    {
+      "id": "Q07",
+      "category": "detailed",
+      "answerable": true,
+      "question": "What is the deadline for submitting business expenses, and what can happen if an employee submits them late?",
+      "expected_answer": "Expenses must be submitted through NovaExpense within 30 calendar days of being incurred. Expenses submitted after this deadline may not be reimbursed.",
+      "expected_sources": [
+        {
+          "file": "company_handbook.pdf",
+          "pages": [
+            6
+          ]
+        }
+      ],
+      "generated_answer": "According to the Expense and Travel Policy, all expenses must be submitted through the NovaExpense platform within thirty (30) calendar days of being incurred (company_handbook.pdf, page 6). If an employee submits expenses after this deadline, they may not be reimbursed. Additionally, repeated violations of the expense policy, including late submissions, may result in suspension of the employee's corporate credit card and disciplinary action (company_handbook.pdf, page 8).",
+      "retrieved_sources": [
+        {
+          "source": "company_handbook.pdf",
+          "page": 8,
+          "distance": 0.2997240424156189
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 11,
+          "distance": 0.3415970802307129
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 5,
+          "distance": 0.35552239418029785
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 14,
+          "distance": 0.3570709824562073
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 6,
+          "distance": 0.36455339193344116
+        }
+      ],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": "stop",
+      "time_seconds": 214.77,
+      "status": "success",
+      "passed": true,
+      "rating_note": "It explains fine the 30-day submission deadline, reimbursement consequences and possible disciplinary action.",
+      "retrieved_context": [
+        "Expense Policy Violations\n\nRepeated violations of the expense policy, including late submissions, missing\nreceipts, or exceeding limits without pre-approval, may result in suspension of\nthe employee's corporate credit card and disciplinary action in accordance with\nSection 14.\n\n\n7. Onboarding Process\n\n\nNovaTech Solutions is committed to providing every new employee with a\nstructured, supportive onboarding experience. Our onboarding program runs for\nthe first ninety (90) calendar days of employment and consists of three\nphases.\n\nPhase 1: Pre-Boarding (Before Day 1)\n\nBefore the new employee's start date, the following steps are completed:",
+        "The learning budget resets on January 1 each year and does not carry over.\nExpenses must be pre-approved by the employee's manager through the",
+        "PTO requests should be submitted via NovaHR at least two (2) weeks in\nadvance for absences of three (3) or more consecutive days, and at least three\n(3) business days in advance for shorter absences. Managers may decline\nrequests during critical business periods, provided reasonable alternative dates\nare offered.\n\nSick Leave\n\nEmployees are entitled to ten (10) paid sick days per calendar year. A medical\ncertificate is required for absences exceeding three (3) consecutive working\ndays. Sick days do not carry over between calendar years.\n\nIn Germany, statutory sick pay provisions apply after the company sick leave\nentitlement is exhausted. Employees in Portugal and the United States should\nrefer to the country-specific addendum for details on statutory sick leave\nprovisions.",
+        "Below 95.0%               10%                       25%                                 30%\n\n  Below 99.0%               —                           —                                     30%\n\n\nCredits are applied to the next billing cycle and do not exceed 30% of the\nmonthly fee. Customers must submit credit requests within 30 days of the\nincident.\n\n7.3 Support Response Times\n\n\n  Severity                                           Starter        Professional         Enterprise\n\n  Critical (service down)                          4 hours          1 hour                     15 minutes\n\n  High (major feature broken)                  8 hours          2 hours                   30 minutes\n\n  Medium (minor feature issue)               24 hours        8 hours                   2 hours\n\n  Low (question / enhancement)              72 hours        24 hours                 8 hours",
+        "Volunteer\n  Leave                    2 days per year                        Pre-approved volunteer activitiesaligned with company CSR goals\n\n                                                              Available after 5 years of continuous\n  Sabbatical             Up to 3 months unpaid                employment; requires VP-level\n                                                              approval\n\n\n6. Expense and Travel Policy\n\n\nNovaTech Solutions reimburses reasonable business expenses incurred in the\ncourse of employment. All expenses must be submitted through the\nNovaExpense platform within thirty (30) calendar days of being incurred.\nExpenses submitted after this deadline may not be reimbursed.\n\nMeals and Incidentals\n\n\n  Category                                                                                   Daily Limit\n\n  Domestic travel (within country of employment)                             €25 per day"
+      ],
+      "reconstructed_context_sources": [
+        {
+          "source": "company_handbook.pdf",
+          "page": 8,
+          "distance": 0.2997240424156189
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 11,
+          "distance": 0.3415970802307129
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 5,
+          "distance": 0.35552239418029785
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 14,
+          "distance": 0.3570709824562073
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 6,
+          "distance": 0.36455339193344116
+        }
+      ],
+      "retrieval_context_reconstructed": true
+    },
+    {
+      "id": "Q08",
+      "category": "detailed",
+      "answerable": true,
+      "question": "What are the ProjectHub file-storage limits per project for Starter, Professional, and Enterprise tiers?",
+      "expected_answer": "The limits are 5 GB per project for Starter, 50 GB for Professional, and 500 GB for Enterprise.",
+      "expected_sources": [
+        {
+          "file": "product_guide.pdf",
+          "pages": [
+            4,
+            12
+          ]
+        }
+      ],
+      "generated_answer": "Based on the provided documents, the ProjectHub file storage limits per project are:\n\n*   **Starter:** 5 GB\n*   **Professional:** 50 GB\n*   **Enterprise:** 500 GB\n\nThis information is stated in the Document Management section on page 4 and confirmed in the feature comparison table on page 12 of the product guide (product_guide.pdf, page 4; product_guide.pdf, page 12).",
+      "retrieved_sources": [
+        {
+          "source": "product_guide.pdf",
+          "page": 5,
+          "distance": 0.2932460904121399
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 4,
+          "distance": 0.29485464096069336
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 3,
+          "distance": 0.30045855045318604
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 12,
+          "distance": 0.30470895767211914
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 10,
+          "distance": 0.30623531341552734
+        }
+      ],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": "stop",
+      "time_seconds": 211.04,
+      "status": "success",
+      "passed": true,
+      "rating_note": "Correctly provides all three ProjectHub storage limits.",
+      "retrieved_context": [
+        "• Supported formats: PDF, DOCX, XLSX, PPTX, PNG, JPG, SVG, MP4, and 40+\n      additional formats\n    • Version history: last 10 versions (Starter), last 50 versions (Professional),\n      unlimited (Enterprise)\n    • In-browser preview and annotation for PDF and image files\n    • Full-text search across document contents (Professional and Enterprise\n      only)\n\n2.3 ProjectHub Reporting\n\nProjectHub includes a native reporting module with 18 pre-built report templates:\n\n    • Project status summary\n    • Task completion rate\n    • Sprint velocity trend\n    • Resource utilization\n    • Time tracking summary\n    • Risk register\n    • Dependency health\n    • Overdue tasks\n\nCustom reports can be created using a drag-and-drop report builder. Reports\nsupport filtering by any standard or custom field, grouping, and conditional\nformatting. Scheduled report delivery via email is available on Professional and\nEnterprise tiers (daily, weekly, or monthly).",
+        "Automation Engine\n\n\nProjectHub includes a rule-based automation engine that reduces manual work:\n\n    • Trigger types: Status change, field update, due date approaching,\n      comment added, attachment uploaded, assignee changed\n    • Action types: Update field, move to column, send notification, create\n      subtask, assign user, add label, trigger webhook\n    • Starter tier: up to 25 automation rules per project\n    • Professional tier: up to 150 automation rules per project\n    • Enterprise tier: unlimited automation rules\n    • Automation execution logs retained for 30 days (Professional) or 90 days\n      (Enterprise)\n\nDocument Management\n\n\nEach project includes a document space:\n\n    • File storage limits: 5 GB per project (Starter), 50 GB per project\n      (Professional), 500 GB per project (Enterprise)",
+        "2.2 Core Features\n\n\nWork Item Management\n\nProjectHub organizes work into a flexible hierarchy: Programs > Projects >\nEpics > Tasks > Subtasks. Each level supports custom fields, statuses,\npriorities, and assignees. Work items can be linked with dependency\nrelationships (blocks, is-blocked-by, relates-to, duplicates) and can span multiple\nprojects within a program.\n\n    • Up to 50 custom fields per work item type (Starter tier)\n    • Up to 200 custom fields per work item type (Professional and Enterprise\n      tiers)\n    • Supported field types: text, number, date, dropdown, multi-select, user\n      picker, URL, currency, formula\n    • Bulk editing of up to 500 work items at once\n    • Work item templates with pre-filled fields and checklists\n\nBoard Views\n\n\nProjectHub provides four primary board views:",
+        "Feature                           Starter         Professional                Enterprise\n\n  Custom fields per work\n  item type                            50                  200                                 200\n\n  Automation rules per\n  project                                25                  150                                 Unlimited\n\n  File storage per project       5 GB              50 GB                              500 GB\n\n  Document version\n  history                                Last 10           Last 50                            Unlimited\n\n\n  Gantt chart export              No                  PDF, PNG                         PDF, PNG, API(JSON)\n\n\n\n  Calendar sync                     No                  Google, Outlook              Google, Outlook,Exchange\n\n\n  Resource refresh\n  interval                               15 min           5 min                              Real-time (<30s)",
+        "4.3 Key Differences Summary\n\n\n\n  Capability                      ProjectHubVersion                       Insight Version\n\n\n  Pre-built widgets                8                                    8 + 30+ visualization types\n\n  Custom widgets                 No                                  Yes\n\n  Data sources                     ProjectHub only              All connected sources\n\n\n  Refresh interval                 30 minutes                     Varies by connector (up to real-time)\n\n\n  Interactive drill-down        No                                  Yes\n\n  Row-level security             No                                  Yes\n\n  Embedding                        No                                  Yes (Professional and Enterprise)\n\n  Scheduled distribution       No                                  Yes\n\n  Cross-dashboard\n  linking                                No                                  Yes"
+      ],
+      "reconstructed_context_sources": [
+        {
+          "source": "product_guide.pdf",
+          "page": 5,
+          "distance": 0.2932460904121399
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 4,
+          "distance": 0.29485464096069336
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 3,
+          "distance": 0.30045855045318604
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 12,
+          "distance": 0.30470895767211914
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 10,
+          "distance": 0.30623531341552734
+        }
+      ],
+      "retrieval_context_reconstructed": true
+    },
+    {
+      "id": "Q09",
+      "category": "detailed",
+      "answerable": true,
+      "question": "What does the Information Security Policy require for a P1 critical incident in terms of acknowledgment, assembling the response team, and notifying senior leadership?",
+      "expected_answer": "A P1 incident must be acknowledged within 15 minutes of detection. The full Incident Response Team must be assembled within 30 minutes. The CEO, General Counsel, and Board Security Committee must be notified within 1 hour.",
+      "expected_sources": [
+        {
+          "file": "security_policy.pdf",
+          "pages": [
+            6
+          ]
+        }
+      ],
+      "generated_answer": "According to the Information Security Policy, a P1 critical incident requires the following actions:\n\n*   **Acknowledgment:** Must occur within 15 minutes of detection (security_policy.pdf, page 6).\n*   **Assembling the Response Team:** The full Incident Response Team must be assembled within 30 minutes (security_policy.pdf, page 6).\n*   **Notifying Senior Leadership:** The CEO, General Counsel, and Board Security Committee must be notified within 1 hour (security_policy.pdf, page 6).",
+      "retrieved_sources": [
+        {
+          "source": "security_policy.pdf",
+          "page": 6,
+          "distance": 0.20797330141067505
+        },
+        {
+          "source": "security_policy.pdf",
+          "page": 6,
+          "distance": 0.26985859870910645
+        },
+        {
+          "source": "security_policy.pdf",
+          "page": 7,
+          "distance": 0.290435791015625
+        },
+        {
+          "source": "security_policy.pdf",
+          "page": 8,
+          "distance": 0.30063045024871826
+        },
+        {
+          "source": "security_policy.pdf",
+          "page": 7,
+          "distance": 0.3039330840110779
+        }
+      ],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": "stop",
+      "time_seconds": 234.93,
+      "status": "success",
+      "passed": true,
+      "rating_note": "Correctly states all three P1 incident response deadlines and required leadership notifications.",
+      "retrieved_context": [
+        "P1 — Critical: An active, ongoing breach involving confirmed unauthorized\naccess to Restricted data, or a complete outage of production systems affecting\nall customers. Examples include: active exfiltration of customer payment data,\nransomware encryption of production databases, or compromise of\nauthentication infrastructure. P1 incidents require acknowledgment within 15\nminutes of detection. The full Incident Response Team must be assembled within\n30 minutes. The CEO, General Counsel, and Board Security Committee must be\nnotified within 1 hour. External forensic support must be engaged within 2 hours\nif the scope of compromise is not fully determined. All other non-critical work by\nIRT members is immediately suspended for the duration of the P1 response.",
+        "The Incident Response Team (IRT) consists of the CISO (Incident Commander),\nthe Security Operations Lead, a designated Engineering Lead, a Communications\nLead, and a Legal representative. The IRT may be supplemented with additional\npersonnel as the nature of the incident requires.\n\n4.2 Severity Levels\n\nAll security incidents are classified into one of four severity levels. The severity\nlevel determines the response timeline, escalation path, and communication\nrequirements.",
+        "routine review that could have been exploited, or a failed brute-force attack\nagainst an employee account. P3 incidents require acknowledgment within 4\nhours of detection. The Security Operations Lead assigns an analyst to\ninvestigate and determines whether escalation is warranted within 8 hours. A\nwritten summary must be delivered within 3 business days.\n\nP4 — Low: A minor security event or policy violation with negligible immediate\nrisk. Examples include: an employee sharing an Internal document without an\nNDA in place, a laptop with full-disk encryption reported lost, a single failed social\nengineering attempt that was recognized and reported, or a minor vulnerability\ndiscovered in a non-customer-facing internal tool. P4 incidents require\nacknowledgment within 24 hours. The Security Operations team investigates\nduring normal business hours and documents findings within 5 business days.\n\n4.3 Incident Response Procedures",
+        "Phase 6 — Post-Incident Review. A formal post-incident review is conducted\nfor all P1 and P2 incidents within 5 business days of resolution. P3 incidents\nreceive a written review within 10 business days. The review documents: the\ntimeline of events, root cause analysis, effectiveness of the response, lessons\nlearned, and specific remediation actions with assigned owners and deadlines.\nPost-incident review reports for P1 incidents are shared with the Board Security\nCommittee. All post-incident reports are retained for five years.\n\n4.4 Incident Communication\n\nDuring P1 incidents, the Communications Lead issues an initial customer\nnotification within 4 hours of confirmation that customer data was affected.\nStatus updates are provided every 12 hours until resolution. For P2 incidents,\ncustomer communication is determined on a case-by-case basis by the Incident\nCommander in consultation with Legal.\n\n\n5. Data Handling and Protection\n\n5.1 Encryption Standards",
+        "4.3 Incident Response Procedures\n\nAll incidents, regardless of severity, follow the same six-phase response lifecycle:\n\nPhase 1 — Detection and Reporting. Any employee who suspects a security\nincident must report it immediately through one of three channels: the Security\nHotline (ext. 7700), the #security-incidents Slack channel, or email to security-\nalert@novatech.internal. Automated detection systems (SIEM, EDR, IDS) also\ngenerate alerts that are triaged by the Security Operations Center (SOC) during\nbusiness hours and by the on-call analyst outside business hours.\n\nPhase 2 — Triage and Classification. The receiving analyst performs initial\ntriage to determine legitimacy and assigns a severity level (P1 through P4). The\nanalyst documents the initial indicators, affected systems, and the time of\ndetection in the Incident Tracking System. If severity is P1 or P2, the analyst\nimmediately contacts the Incident Commander."
+      ],
+      "reconstructed_context_sources": [
+        {
+          "source": "security_policy.pdf",
+          "page": 6,
+          "distance": 0.20797330141067505
+        },
+        {
+          "source": "security_policy.pdf",
+          "page": 6,
+          "distance": 0.26985859870910645
+        },
+        {
+          "source": "security_policy.pdf",
+          "page": 7,
+          "distance": 0.290435791015625
+        },
+        {
+          "source": "security_policy.pdf",
+          "page": 8,
+          "distance": 0.30063045024871826
+        },
+        {
+          "source": "security_policy.pdf",
+          "page": 7,
+          "distance": 0.3039330840110779
+        }
+      ],
+      "retrieval_context_reconstructed": true
+    },
+    {
+      "id": "Q10",
+      "category": "detailed",
+      "answerable": true,
+      "question": "What are the three pricing tiers and their monthly per-user prices in the product guide?",
+      "expected_answer": "Starter costs €29 per user per month, Professional costs €79 per user per month, and Enterprise has custom pricing.",
+      "expected_sources": [
+        {
+          "file": "product_guide.pdf",
+          "pages": [
+            11
+          ]
+        }
+      ],
+      "generated_answer": "Based on the product guide, the three pricing tiers and their monthly per-user prices are as follows:\n\n*   **Starter:** €29/user/month\n*   **Professional:** €79/user/month\n*   **Enterprise:** Custom pricing\n\nThis information is found in the Per-Product Pricing section on page 10 of the document. (product_guide.pdf, page 10)",
+      "retrieved_sources": [
+        {
+          "source": "product_guide.pdf",
+          "page": 10,
+          "distance": 0.28272122144699097
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 11,
+          "distance": 0.29017698764801025
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 10,
+          "distance": 0.35864198207855225
+        }
+      ],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": "stop",
+      "time_seconds": 540.17,
+      "status": "success",
+      "passed": true,
+      "rating_note": "Correctly identifies all three pricing tiers and their monthly per-user prices.",
+      "retrieved_context": [
+        "Cross-dashboard\n  linking                                No                                  Yes\n\n\nWhen both products are licensed together, the Insight version automatically\ningests all ProjectHub data via the native connector, and users can access the\nenhanced dashboard capabilities for their project data without any additional\nconfiguration.\n\n\n5. Pricing and Plans\n\n\nNovaTech offers three pricing tiers, applicable to both ProjectHub and Insight.\nCustomers can license each product independently or together at a bundled rate.\n\n5.1 Per-Product Pricing\n\n\n  Tier               Monthly Price                   Annual Price (per user,                      Minimum\n                      (per user)                     billed annually)                             Users\n\n  Starter             €29/user/month            €24/user/month                            5\n\n  Professional     €79/user/month            €66/user/month                            10",
+        "5.2 Bundle Pricing (ProjectHub + Insight)\n\nCustomers licensing both products receive a 15% discount on the combined\nper-user price:\n\n\n  Tier               Monthly Bundle Price (per                        Annual Bundle Price (per\n                     user)                                            user)\n\n  Starter             €49/user/month (instead of €58)         €41/user/month\n\n\n  Professional     €134/user/month (instead of€158)                                                   €112/user/month\n\n\n  Enterprise        Custom pricing                                    Custom pricing\n\n5.3 Add-Ons\n\n\n  Add-On                                             Price                     Available On\n\n  Additional storage (per 100 GB)             €50/month               All tiers\n\n  SSO (SAML 2.0 / OIDC)                           Included                  Professional, Enterprise\n\n  Advanced audit logging                         €5/user/month         Professional, Enterprise",
+        "Professional     €79/user/month            €66/user/month                            10\n\n  Enterprise        Custom pricing             Custom pricing                             50"
+      ],
+      "reconstructed_context_sources": [
+        {
+          "source": "product_guide.pdf",
+          "page": 10,
+          "distance": 0.28272122144699097
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 11,
+          "distance": 0.29017698764801025
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 10,
+          "distance": 0.35864198207855225
+        }
+      ],
+      "retrieval_context_reconstructed": true
+    },
+    {
+      "id": "Q11",
+      "category": "cross_document",
+      "answerable": true,
+      "question": "How many employees does NovaTech Solutions have according to the company handbook, and how many full-time employees did it have at the end of Q1 2026?",
+      "expected_answer": "The company handbook describes NovaTech as having approximately 400 employees. The Q1 2026 report's KPI dashboard records employee headcount as 412. These figures are consistent in scale, with the quarterly report giving the more specific Q1 2026 figure.",
+      "expected_sources": [
+        {
+          "file": "company_handbook.pdf",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "file": "quarterly_report_q1_2026.pdf",
+          "pages": [
+            14
+          ]
+        }
+      ],
+      "generated_answer": "According to the company handbook, NovaTech Solutions has approximately 400 employees (company_handbook.pdf, page 1). At the end of Q1 2026, the company had 412 full-time employees (quarterly_report_q1_2026.pdf, page 8).",
+      "retrieved_sources": [
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 8,
+          "distance": 0.12450259923934937
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 1,
+          "distance": 0.2334129810333252
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 1,
+          "distance": 0.25339025259017944
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 2,
+          "distance": 0.25681865215301514
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 1,
+          "distance": 0.2600436210632324
+        }
+      ],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": "stop",
+      "time_seconds": 349.86,
+      "status": "success",
+      "passed": true,
+      "rating_note": "compares perfectly 400 employees in the handbook with 412 full-time employees in the Q1 2026 report.",
+      "retrieved_context": [
+        "6. People and Organization\n\n6.1 Headcount Summary\n\nNovaTech Solutions ended Q1 2026 with 412 full-time employees, up from 374 at\nthe end of Q4 2025. We hired 38 new team members during the quarter against\na target of 35.\n\n\n  Department                          Headcount (Q1 End)         Q1 Hires       % of Total\n\n  Engineering                               156                                       18                  37.9%\n\n  Product & Design                      34                                         4                    8.3%\n\n  Sales                                         62                                         6                    15.0%\n\n  Customer Success                     48                                         3                    11.7%\n\n  Marketing                                  29                                         2                    7.0%\n\n  General & Administrative          38                                         1                    9.2%",
+        "NovaTech Solutions — Employee\nHandbook\n\n\n\nVersion 4.2 — Effective January 1, 2026 Human Resources Department\nLast Updated: January 15, 2026\n\n\nTable of Contents\n\n\n   1. Welcome and Company Overview\n   2. Mission, Vision, and Values\n   3. Office Locations and Working Hours\n   4. Remote and Hybrid Work Policy\n   5. Leave and Time-Off Policy\n   6. Expense and Travel Policy\n   7. Onboarding Process\n   8. Performance Management\n   9. Professional Development\n 10. Code of Conduct\n 11. Information Technology Policies\n 12. Data Protection and Confidentiality\n 13. Health and Safety\n 14. Grievance and Disciplinary Procedures\n 15. Handbook Acknowledgment\n\n\n1. Welcome and Company Overview",
+        "1. Welcome and Company Overview\n\n\nWelcome to NovaTech Solutions. Founded in 2017 in Munich, Germany, NovaTech\nSolutions has grown from a small startup into a mid-size B2B SaaS company with\napproximately 400 employees across three offices. We build project management\nand analytics tools that help over 800 customers streamline their operations and\nmake data-driven decisions.\n\nOur flagship products — NovaTech ProjectHub (project and portfolio\nmanagement) and NovaTech Insight (business analytics and reporting) — serve\nclients in manufacturing, financial services, logistics, and the public sector. In",
+        "fiscal year 2025, NovaTech Solutions achieved annual recurring revenue of\napproximately €17 million.\n\nThis handbook outlines the policies, benefits, and expectations that apply to all\nNovaTech Solutions employees regardless of location or role. It supplements but\ndoes not replace your individual employment contract. In the event of a conflict\nbetween this handbook and your employment contract, the terms of the\nemployment contract shall prevail.\n\nPlease read this handbook carefully and direct any questions to your manager or\nto the Human Resources team at hr@novatech-solutions.com.\n\n\n2. Mission, Vision, and Values\n\nMission\n\nTo empower organizations with intelligent project management and analytics\ntools that turn complexity into clarity.\n\nVision\n\nBy 2030, NovaTech Solutions aims to be the leading European B2B SaaS provider\nfor integrated project intelligence, serving 10,000 enterprise customers\nworldwide.\n\nCore Values\n\n\n Value                       Description",
+        "NovaTech Solutions -- Quarterly\nBusiness Report\n\n\nQ1 2026 (January -- March)\n\n\nClassification: Internal -- Board & Leadership Distribution Only\n\nPrepared by: Office of the CFO | Approved by: Sarah Chen, CEO\n\nReport Date: April 14, 2026\n\n\n1. Executive Summary\n\n\nNovaTech Solutions delivered a strong first quarter in 2026, continuing the\ngrowth trajectory established in the second half of 2025. Annual Recurring\nRevenue (ARR) reached EUR 18.2 million at quarter-end, representing a 23%\nyear-over-year increase from EUR 14.8 million at the close of Q1 2025. Quarterly\nrecognized revenue came in at EUR 4.8 million, exceeding our internal forecast of\nEUR 4.6 million by approximately 4%."
+      ],
+      "reconstructed_context_sources": [
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 8,
+          "distance": 0.12450259923934937
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 1,
+          "distance": 0.2334129810333252
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 1,
+          "distance": 0.25339025259017944
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 2,
+          "distance": 0.25681865215301514
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 1,
+          "distance": 0.2600436210632324
+        }
+      ],
+      "retrieval_context_reconstructed": true
+    },
+    {
+      "id": "Q12",
+      "category": "cross_document",
+      "answerable": true,
+      "question": "What remote-work arrangement was described in the employee handbook, and what change did leadership approve for Q3 2026?",
+      "expected_answer": "The handbook describes eligible employees as being able to work remotely up to 3 days per week, subject to manager approval. In the March 5 leadership meeting leadership approved an updated policy allowing up to 4 remote days per week from Q3 2026 with Tuesday remaining the company-wide mandatory in-office day. Department heads may set additional in-office requirements with HR approval.",
+      "expected_sources": [
+        {
+          "file": "company_handbook.pdf",
+          "pages": [
+            4,
+            5
+          ]
+        },
+        {
+          "file": "meeting_notes.pdf",
+          "pages": [
+            6,
+            7
+          ]
+        }
+      ],
+      "generated_answer": "According to the employee handbook (company_handbook.pdf, page 4), eligible employees may work remotely for up to three (3) days per week, subject to manager approval, provided they meet requirements such as having a stable internet connection and using the company VPN.\n\nLeadership approved a change effective Q3 2026 that updates the policy to allow up to four (4) days remote per week, with Tuesday remaining the mandatory in-office day (meeting_notes.pdf, page 7).",
+      "retrieved_sources": [
+        {
+          "source": "meeting_notes.pdf",
+          "page": 7,
+          "distance": 0.24174392223358154
+        },
+        {
+          "source": "meeting_notes.pdf",
+          "page": 6,
+          "distance": 0.2671545743942261
+        },
+        {
+          "source": "meeting_notes.pdf",
+          "page": 6,
+          "distance": 0.2819472551345825
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 4,
+          "distance": 0.29098474979400635
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 4,
+          "distance": 0.3171207904815674
+        }
+      ],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": "stop",
+      "time_seconds": 236.82,
+      "status": "success",
+      "passed": false,
+      "rating_note": "Correctly describes the remote-work policy change but misses the additional in-office requirements that department heads may establish with HR approval but this might be fixed by adding bit more in query",
+      "retrieved_context": [
+        "Marcus supported the change and noted that the IT infrastructure already\nsupports full remote -- VPN capacity was expanded in 2024 and all employees\nhave company laptops. No additional investment needed.\n\nDecision: Remote work policy updated to allow up to 4 days remote per week,\neffective Q3 2026. Tuesday remains the mandatory in-office day company-wide.\nDepartment heads may set additional in-office requirements with HR approval.\nAisha to update the employee handbook and communicate the change by March\n20.\n\n2. Password Rotation Policy Review\n\nMarcus raised the topic of password rotation frequency. The current IT security\npolicy mandates password changes every 90 days for all systems. He argued this\nis outdated and counterproductive:",
+        "Meeting 3: Remote Work Policy, Security Updates\n& AI Investment\n\n\nDate: March 5, 2026 Time: 10:00 -- 13:00 CET Location: Conference Room A\n(Munich HQ) / Teams hybrid Attendees: - Sarah Chen (CEO) -- in person - Marcus\nWeber (CTO) -- in person - Elena Rossi (VP Engineering) -- remote (Lisbon --\nscouting the new office) - James Park (VP Sales) -- in person (visiting Munich) -\nAisha Patel (Head of HR) -- in person\n\n1. Remote Work Policy Update\n\nAisha opened with a review of the current remote work policy and employee\nsatisfaction data. Current policy allows up to 3 days remote per week, with\nTuesday and Thursday as mandatory in-office days.",
+        "Key data points from the February employee survey (82% response\nrate): - 71% of employees want more remote flexibility - 18% said the current\npolicy is fine - 11% actually want more in-office time - Voluntary attrition in H2\n2025 was 14%, with \"flexibility\" cited as the #2 reason for leaving (after\ncompensation) - Competitor analysis shows 60% of comparable companies in\nDACH offer 4+ remote days\n\nAisha recommended expanding remote work from 3 days to 4 days per week,\nwith only Tuesday as the mandatory in-office day (dropping Thursday). This\nwould take effect Q3 2026 to align with the Lisbon office opening, since Lisbon\nemployees will be fully remote relative to Munich anyway.\n\nElena strongly supported the change, noting that her engineering teams\nalready struggle with the Thursday requirement since many of their collaboration\nsessions happen asynchronously. She also pointed out that recruiting for the\nLisbon office will be much easier with a flexible policy.",
+        "4. Remote and Hybrid Work Policy\n\n\nNovaTech Solutions supports hybrid work arrangements. Employees in eligible\nroles may work remotely for up to three (3) days per week, subject to\nmanager approval.\n\nEligibility\n\nAll employees who have completed their probationary period (six months) are\neligible for hybrid work unless their role requires physical presence (e.g., office\nmanagement, facilities, on-site IT support). Employees still within their\nprobationary period may work remotely for up to one (1) day per week with\nmanager approval.\n\nApproval Process\n\n   1. The employee submits a hybrid work request through the NovaHR portal,\n      specifying their preferred remote days.\n   2. The manager reviews the request within five (5) business days, considering\n      team coverage needs, collaboration requirements, and role suitability.\n   3. Approved arrangements are documented in NovaHR and reviewed\n      quarterly.\n\nRequirements for Remote Work",
+        "Requirements for Remote Work\n\n    • Employees must have a stable internet connection (minimum 25 Mbps\n      download, 5 Mbps upload).\n    • A dedicated, ergonomic workspace is recommended. NovaTech offers a one-\n      time home office setup allowance of €500 for employees approved for\n      regular remote work (see Section 6).\n    • Employees must be reachable via Slack and email during core collaboration\n      hours.\n    • All remote work must comply with IT security policies (see Section 11),\n      including the use of the company VPN for accessing internal systems.\n\nLocation Restrictions\n\nRemote work must be performed from the employee's registered country of\nemployment. Working from a different country for more than five (5)\nconsecutive business days requires prior approval from HR due to tax and\nsocial security implications. Requests for extended cross-border remote work\nmust be submitted at least four (4) weeks in advance."
+      ],
+      "reconstructed_context_sources": [
+        {
+          "source": "meeting_notes.pdf",
+          "page": 7,
+          "distance": 0.24174392223358154
+        },
+        {
+          "source": "meeting_notes.pdf",
+          "page": 6,
+          "distance": 0.2671545743942261
+        },
+        {
+          "source": "meeting_notes.pdf",
+          "page": 6,
+          "distance": 0.2819472551345825
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 4,
+          "distance": 0.29098474979400635
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 4,
+          "distance": 0.3171207904815674
+        }
+      ],
+      "retrieval_context_reconstructed": true
+    },
+    {
+      "id": "Q13",
+      "category": "cross_document",
+      "answerable": true,
+      "question": "What was NovaTech's ARR in fiscal year 2025 according to the handbook, and what ARR did the Q1 2026 report record?",
+      "expected_answer": "The handbook states that NovaTech achieved approximately €17 million in ARR in fiscal year 2025. The Q1 2026 report records ARR of €18.2 million at quarter-end. The figures refer to different reporting periods and should not be treated as the same measurement date.",
+      "expected_sources": [
+        {
+          "file": "company_handbook.pdf",
+          "pages": [
+            1,
+            2
+          ]
+        },
+        {
+          "file": "quarterly_report_q1_2026.pdf",
+          "pages": [
+            1,
+            2
+          ]
+        }
+      ],
+      "generated_answer": "Based on the provided documents, there is **insufficient information** regarding NovaTech's ARR in fiscal year 2025 according to the handbook. The Employee Handbook (company_handbook.pdf) does not contain financial metrics or Annual Recurring Revenue (ARR) data for any fiscal year (Source 3, Page 1; Source 2, Page 10).\n\nAccording to the Q1 2026 report (quarterly_report_q1_2026.pdf), the recorded ARR at quarter-end was **EUR 18.2 million**. The report further states that this represents a year-over-year increase from EUR 14.8 million at the close of Q1 2025 (Source 1, Page 1).",
+      "retrieved_sources": [
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 1,
+          "distance": 0.2500963807106018
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 10,
+          "distance": 0.3224126696586609
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 1,
+          "distance": 0.3323312997817993
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 3,
+          "distance": 0.33320701122283936
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 8,
+          "distance": 0.33345091342926025
+        }
+      ],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": "stop",
+      "time_seconds": 1785.25,
+      "status": "success",
+      "passed": false,
+      "rating_note": "Incorrectly claims the handbook contains no ARR information and misses the approximately EUR 17 million FY2025 figure.",
+      "retrieved_context": [
+        "NovaTech Solutions -- Quarterly\nBusiness Report\n\n\nQ1 2026 (January -- March)\n\n\nClassification: Internal -- Board & Leadership Distribution Only\n\nPrepared by: Office of the CFO | Approved by: Sarah Chen, CEO\n\nReport Date: April 14, 2026\n\n\n1. Executive Summary\n\n\nNovaTech Solutions delivered a strong first quarter in 2026, continuing the\ngrowth trajectory established in the second half of 2025. Annual Recurring\nRevenue (ARR) reached EUR 18.2 million at quarter-end, representing a 23%\nyear-over-year increase from EUR 14.8 million at the close of Q1 2025. Quarterly\nrecognized revenue came in at EUR 4.8 million, exceeding our internal forecast of\nEUR 4.6 million by approximately 4%.",
+        "1. Progress against OKRs (Objectives and Key Results): Each employee\n      sets 3–5 OKRs per quarter in collaboration with their manager.\n   2. Values alignment: A brief discussion of how the employee has\n      demonstrated NovaTech's core values.\n   3. Development goals: Review of professional development activities and\n      skills growth.\n   4. Feedback exchange: Bidirectional feedback — the employee also\n      provides feedback on management and team dynamics.\n\nQuarterly check-ins are documented in NovaHR. They are developmental in\nnature and do not directly determine compensation changes.\n\nAnnual Formal Review\n\nThe annual formal review takes place in December of each calendar year. It\nsynthesizes the four quarterly check-ins and produces an overall performance\nrating on the following scale:\n\n\n Rating                          Description\n\n\n Exceptional (5)              Consistently exceeds expectations; recognized impactbeyond immediate role",
+        "NovaTech Solutions — Employee\nHandbook\n\n\n\nVersion 4.2 — Effective January 1, 2026 Human Resources Department\nLast Updated: January 15, 2026\n\n\nTable of Contents\n\n\n   1. Welcome and Company Overview\n   2. Mission, Vision, and Values\n   3. Office Locations and Working Hours\n   4. Remote and Hybrid Work Policy\n   5. Leave and Time-Off Policy\n   6. Expense and Travel Policy\n   7. Onboarding Process\n   8. Performance Management\n   9. Professional Development\n 10. Code of Conduct\n 11. Information Technology Policies\n 12. Data Protection and Confidentiality\n 13. Health and Safety\n 14. Grievance and Disciplinary Procedures\n 15. Handbook Acknowledgment\n\n\n1. Welcome and Company Overview",
+        "2.4 Cash Position\n\nCash and cash equivalents at quarter-end stood at EUR 6.1M, down from EUR\n6.8M at the end of Q4 2025. The decrease reflects the Lisbon office investment\nand accelerated hiring. At the current burn rate, NovaTech maintains\napproximately 16 months of runway without additional revenue growth, though\nour trajectory suggests continued cash generation. No additional fundraising is\nplanned for 2026.\n\n\n3. Customer Metrics\n\n3.1 Customer Base Overview\n\n\n  Metric                                             Q1 2026           Q4 2025           Q1 2025\n\n  Total Customers                                   847                     821                     714\n\n  Enterprise Tier                                      52                       48                       39\n\n  Professional Tier                                   283                     271                     241\n\n  Starter Tier                                           512                     502                     434",
+        "6. People and Organization\n\n6.1 Headcount Summary\n\nNovaTech Solutions ended Q1 2026 with 412 full-time employees, up from 374 at\nthe end of Q4 2025. We hired 38 new team members during the quarter against\na target of 35.\n\n\n  Department                          Headcount (Q1 End)         Q1 Hires       % of Total\n\n  Engineering                               156                                       18                  37.9%\n\n  Product & Design                      34                                         4                    8.3%\n\n  Sales                                         62                                         6                    15.0%\n\n  Customer Success                     48                                         3                    11.7%\n\n  Marketing                                  29                                         2                    7.0%\n\n  General & Administrative          38                                         1                    9.2%"
+      ],
+      "reconstructed_context_sources": [
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 1,
+          "distance": 0.2500963807106018
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 10,
+          "distance": 0.3224126696586609
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 1,
+          "distance": 0.3323312997817993
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 3,
+          "distance": 0.33320701122283936
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 8,
+          "distance": 0.33345091342926025
+        }
+      ],
+      "retrieval_context_reconstructed": true
+    },
+    {
+      "id": "Q14",
+      "category": "cross_document",
+      "answerable": true,
+      "question": "What budget did leadership approve for NovaTech Copilot, and what release stages and target timing does the Q1 2026 report describe?",
+      "expected_answer": "The March 5 leadership meeting notes record approval of a €1.2 million budget for NovaTech Copilot. The Q1 2026 report lists Copilot in the Q3 2026 roadmap as being in the design phase, with an initial internal alpha targeted for July 2026 and a customer beta planned for September 2026. These are the budget and timing details stated in the respective documents.",
+      "expected_sources": [
+        {
+          "file": "meeting_notes.pdf",
+          "pages": [
+            8
+          ]
+        },
+        {
+          "file": "quarterly_report_q1_2026.pdf",
+          "pages": [
+            6
+          ]
+        }
+      ],
+      "generated_answer": "Leadership approved a total budget of EUR 1.2 million for NovaTech Copilot (meeting_notes.pdf, page 8). According to the Q1 2026 report, the initiative is in the Design phase with a target quarter of Q3 2026 (quarterly_report_q1_2026.pdf, page 6). The report further specifies an initial internal alpha targeted for July 2026 and a customer beta planned for September 2026 (quarterly_report_q1_2026.pdf, page 6).",
+      "retrieved_sources": [
+        {
+          "source": "meeting_notes.pdf",
+          "page": 8,
+          "distance": 0.22220325469970703
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 6,
+          "distance": 0.2462671995162964
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 1,
+          "distance": 0.251375675201416
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 6,
+          "distance": 0.26391327381134033
+        },
+        {
+          "source": "meeting_notes.pdf",
+          "page": 8,
+          "distance": 0.2753296494483948
+        }
+      ],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": "stop",
+      "status": "success",
+      "passed": true,
+      "rating_note": "It identified the EUR 1.2 million budget, design phase, July internal alpha and September customer beta.",
+      "retrieved_context": [
+        "rotation. Marcus to update the IT security policy document and send a company-\nwide communication by March 12.\n\n3. NovaTech Copilot -- Budget Approval\n\nMarcus presented the business case for NovaTech Copilot, an AI-powered\nassistant integrated into the ProjectHub platform. This has been in conceptual\ndiscussions since Q4 2025 and Marcus is now seeking formal budget approval.\n\nConcept overview: - AI assistant embedded in ProjectHub that helps users with\ntask prioritization, status summarization, risk identification, and natural-language\nquerying of project data - Built on a combination of open-source LLMs (locally\nhosted for data privacy) and fine-tuned models for ProjectHub-specific tasks -\nDifferentiation from competitors: runs on-premises/in-customer-VPC for\nenterprise clients with strict data residency requirements - Target: beta release\nby Q4 2026, GA in Q1 2027",
+        "NovaTech Copilot (AI Assistant)                        Q3 2026                      Design phase\n\n ProjectHub Mobile App (iOS/Android)                Q3 2026                      Design phase\n\n Insight Real-Time Streaming                             Q4 2026                      Planning\n\n\nNovaTech Copilot is an AI-powered conversational assistant designed to\noperate across both ProjectHub and Insight. It will enable users to query project\nstatus, generate reports, create tasks, and receive proactive recommendations\nthrough natural language interaction. The Copilot initiative is being led by a\ndedicated 8-person team in the Lisbon office, with an initial internal alpha\ntargeted for July 2026 and customer beta planned for September 2026.",
+        "NovaTech Solutions -- Quarterly\nBusiness Report\n\n\nQ1 2026 (January -- March)\n\n\nClassification: Internal -- Board & Leadership Distribution Only\n\nPrepared by: Office of the CFO | Approved by: Sarah Chen, CEO\n\nReport Date: April 14, 2026\n\n\n1. Executive Summary\n\n\nNovaTech Solutions delivered a strong first quarter in 2026, continuing the\ngrowth trajectory established in the second half of 2025. Annual Recurring\nRevenue (ARR) reached EUR 18.2 million at quarter-end, representing a 23%\nyear-over-year increase from EUR 14.8 million at the close of Q1 2025. Quarterly\nrecognized revenue came in at EUR 4.8 million, exceeding our internal forecast of\nEUR 4.6 million by approximately 4%.",
+        "4.3 Platform and Infrastructure\n\n    • Migrated 60% of backend services to Kubernetes (target: 100% by Q3\n      2026), reducing deployment times from 45 minutes to under 8 minutes.\n    • Achieved 99.97% uptime across all production services in Q1, exceeding\n      our SLA commitment of 99.9%.\n    • Completed SOC 2 Type II audit renewal with zero findings, maintaining our\n      compliance posture for regulated-industry customers.\n\n4.4 Product Roadmap -- Upcoming\n\nThe following major initiatives are planned for the remainder of 2026:\n\n\n Initiative                                                     Target Quarter        Status\n\n ProjectHub v3.3 (Advanced Reporting)             Q2 2026                      In development\n\n Insight v3.0 (Predictive Analytics)                     Q2 2026                      In development\n\n NovaTech Copilot (AI Assistant)                        Q3 2026                      Design phase",
+        "Sarah asked about competitive risk -- what happens if Asana or Monday.com\nships a similar feature first? Marcus responded that most competitors are\nbuilding on OpenAI/Anthropic APIs, which means they cannot offer on-prem\ndeployment. Our local-model approach is slower to build but creates a defensible\nmoat for regulated industries (finance, healthcare, government).\n\nDecision: NovaTech Copilot approved with a total budget of EUR 1.2M. Phased\nstaffing: 2 ML engineers starting April, ramping to 4 by July. Marcus owns the\ninitiative with monthly progress updates to the leadership team."
+      ],
+      "reconstructed_context_sources": [
+        {
+          "source": "meeting_notes.pdf",
+          "page": 8,
+          "distance": 0.22220325469970703
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 6,
+          "distance": 0.2462671995162964
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 1,
+          "distance": 0.251375675201416
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 6,
+          "distance": 0.26391327381134033
+        },
+        {
+          "source": "meeting_notes.pdf",
+          "page": 8,
+          "distance": 0.2753296494483948
+        }
+      ],
+      "retrieval_context_reconstructed": true
+    },
+    {
+      "id": "Q15",
+      "category": "cross_document",
+      "answerable": true,
+      "question": "How did ProjectHub and Insight contribute to Q1 2026 revenue, and which product had the higher year-over-year growth?",
+      "expected_answer": "ProjectHub generated €3.36 million, representing 70% of Q1 2026 revenue, with 26% year-over-year growth. Insight generated €1.20 million, representing 25% of revenue, with 31% year-over-year growth. Insight had the higher year-over-year growth rate.",
+      "expected_sources": [
+        {
+          "file": "quarterly_report_q1_2026.pdf",
+          "pages": [
+            2
+          ]
+        }
+      ],
+      "generated_answer": "Based on the provided documents, ProjectHub contributed EUR 3.36M (70% of total revenue) to Q1 2026 revenue with a year-over-year growth of +26%, while Insight contributed EUR 1.20M (25% of total revenue) with a year-over-year growth of +31%. Consequently, Insight had the higher year-over-year growth rate.\n\n(quarterly_report_q1_2026.pdf, page 2)",
+      "retrieved_sources": [
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 2,
+          "distance": 0.18993699550628662
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 1,
+          "distance": 0.2427119016647339
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 2,
+          "distance": 0.2678720951080322
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 10,
+          "distance": 0.2820713520050049
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 5,
+          "distance": 0.29168784618377686
+        }
+      ],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": "stop",
+      "time_seconds": 217.72,
+      "status": "success",
+      "passed": true,
+      "rating_note": "it identifies both products' revenue contributions, percentages and year-over-year growth rates.",
+      "retrieved_context": [
+        "Professional Services         EUR 0.24M                      5%                           +12%\n\n\nProjectHub remains our primary revenue driver, though Insight continues to grow\nat a faster rate as analytics adoption increases among existing ProjectHub\ncustomers. The attach rate for Insight among ProjectHub Enterprise customers\nrose to 68%, up from 54% a year ago.\n\n2.3 Expense Summary\n\nTotal operating expenses for Q1 2026 were EUR 4.52M, yielding an operating\nmargin of approximately 5.8%. This is down from 8.1% in Q4 2025, driven\nprimarily by one-time costs associated with the Lisbon office opening (EUR 185K",
+        "Several factors contributed to this outperformance. The launch of ProjectHub\nv3.2 in February, which introduced our first AI-powered features, drove\nmeaningful upsell activity among existing Enterprise accounts. Net Revenue\nRetention (NRR) improved to 112%, up from 108% in Q4 2025, reflecting both\nexpansion revenue and a modest reduction in churn. The opening of our Lisbon\nengineering office in January proceeded on schedule and under budget, adding\n22 staff members who are already contributing to the Insight product roadmap.\n\nHowever, the quarter was not without challenges. Three Enterprise accounts\ntotaling EUR 420,000 in ARR have flagged potential non-renewal for Q2 and Q3.\nThe competitive landscape shifted meaningfully when Planwise, a well-funded\ncompetitor, launched AI-driven project analytics features in late March. These\ndevelopments require focused attention in the coming quarter.",
+        "Net Revenue\n Retention (NRR)               112%          108%          105%          +4pp              +7pp\n\n\nSubscription revenue accounted for 91% of total quarterly revenue (EUR 4.37M),\nwith the remaining 9% (EUR 0.43M) derived from professional services\nengagements, primarily onboarding and custom integration work for Enterprise-\ntier customers.\n\n2.2 Revenue by Product Line\n\n\n Product                          Q1 2026 Revenue        Share of Total       YoY Growth\n\n ProjectHub                         EUR 3.36M                      70%                         +26%\n\n Insight                               EUR 1.20M                      25%                         +31%\n\n Professional Services         EUR 0.24M                      5%                           +12%",
+        "Cross-dashboard\n  linking                                No                                  Yes\n\n\nWhen both products are licensed together, the Insight version automatically\ningests all ProjectHub data via the native connector, and users can access the\nenhanced dashboard capabilities for their project data without any additional\nconfiguration.\n\n\n5. Pricing and Plans\n\n\nNovaTech offers three pricing tiers, applicable to both ProjectHub and Insight.\nCustomers can license each product independently or together at a bundled rate.\n\n5.1 Per-Product Pricing\n\n\n  Tier               Monthly Price                   Annual Price (per user,                      Minimum\n                      (per user)                     billed annually)                             Users\n\n  Starter             €29/user/month            €24/user/month                            5\n\n  Professional     €79/user/month            €66/user/month                            10",
+        "• Krauss Engineering GmbH (Enterprise): Expansion from Professional to\n      Enterprise tier, ACV increased from EUR 14K to EUR 62K. Added Insight\n      analytics across all three of their German offices.\n    • Finova Capital Partners (Professional): New logo, EUR 8.2K ACV. Referred\n      by existing customer Bergmann Wealth Advisors. Signals growing traction in\n      the financial services vertical.\n    • Nordic Health Alliance (Professional to Enterprise upgrade): ACV moved\n      from EUR 11K to EUR 48K after pilot program for Insight dashboards proved\n      successful across their hospital network spanning Denmark and Sweden.\n\n\n4. Product Milestones\n\n4.1 ProjectHub v3.2\n\nProjectHub v3.2 was released on February 12, 2026, representing our most\nsignificant product update in over a year. Key features included:"
+      ],
+      "reconstructed_context_sources": [
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 2,
+          "distance": 0.18993699550628662
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 1,
+          "distance": 0.2427119016647339
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 2,
+          "distance": 0.2678720951080322
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 10,
+          "distance": 0.2820713520050049
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 5,
+          "distance": 0.29168784618377686
+        }
+      ],
+      "retrieval_context_reconstructed": true
+    },
+    {
+      "id": "Q16",
+      "category": "unanswerable",
+      "answerable": false,
+      "question": "On what exact calendar date does the company pay its annual employee bonus?",
+      "expected_answer": "The provided documents do not specify an annual employee bonus payment date. The handbook mentions a €250 NovaStar Award bonus for quarterly award winners, but it does not state a company-wide annual bonus payment date.",
+      "expected_sources": [
+        {
+          "file": "company_handbook.pdf",
+          "pages": [
+            11
+          ]
+        }
+      ],
+      "generated_answer": "Based on the provided document evidence, there is insufficient information to determine the exact calendar date when the company pays its annual employee bonus. The text from (company_handbook.pdf, page 5) only covers Team Days and the Annual Leave/PTO policy.",
+      "retrieved_sources": [
+        {
+          "source": "company_handbook.pdf",
+          "page": 5,
+          "distance": 0.3558309078216553
+        }
+      ],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": "stop",
+      "time_seconds": 122.43,
+      "status": "success",
+      "passed": true,
+      "rating_note": "It perfectly states that the exact annual bonus payment date is unavailable even though retrieval returns an irrelevant handbook page.",
+      "retrieved_context": [
+        "Team Days\n\nEach team must designate at least one (1) mandatory in-office day per\nweek for collaborative work. These team days are set by the team lead and\ncommunicated at the start of each quarter.\n\n\n5. Leave and Time-Off Policy\n\nAnnual Leave (Paid Time Off)\n\nAll full-time employees receive twenty-five (25) days of paid time off (PTO) per\ncalendar year, in addition to public holidays observed at their respective office\nlocation. Part-time employees receive PTO on a pro-rata basis.\n\nPTO accrues monthly (2.083 days per month). Employees may use PTO before it\nhas fully accrued, subject to manager approval. The maximum negative PTO\nbalance permitted is five (5) days.\n\nCarryover: Unused PTO may be carried over to the following calendar year, up\nto a maximum of five (5) days. Carried-over days must be used by March 31\nof the following year. Any unused carried-over days beyond this date will be\nforfeited unless prohibited by local employment law."
+      ],
+      "reconstructed_context_sources": [
+        {
+          "source": "company_handbook.pdf",
+          "page": 5,
+          "distance": 0.3558309078216553
+        }
+      ],
+      "retrieval_context_reconstructed": true
+    },
+    {
+      "id": "Q17",
+      "category": "unanswerable",
+      "answerable": false,
+      "question": "What was NovaTech's exact net profit after tax for Q1 2026?",
+      "expected_answer": "The Q1 2026 report provides operating income and operating expenses, but the provided report does not state an exact net profit after tax figure.",
+      "expected_sources": [
+        {
+          "file": "quarterly_report_q1_2026.pdf",
+          "pages": [
+            3
+          ]
+        }
+      ],
+      "generated_answer": "Based on the provided documents, there is insufficient information to determine NovaTech's exact net profit after tax for Q1 2026.\n\nWhile the financial reports provide data on revenue and cash position, they do not disclose net profit figures:\n*   The quarterly report states that recognized revenue came in at EUR 4.8 million but does not mention profit margins or after-tax earnings (quarterly_report_q1_2026.pdf, page 1).\n*   The cash position section notes a quarter-end balance of EUR 6.1M but does not include profitability data (quarterly_report_q1_2026.pdf, page 3).\n*   The company handbook mentions the fiscal year 2025 annual recurring revenue was approximately €17 million but contains no profit information for Q1 2026 (company_handbook.pdf, page 2).",
+      "retrieved_sources": [
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 1,
+          "distance": 0.24971383810043335
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 3,
+          "distance": 0.28298962116241455
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 8,
+          "distance": 0.2905861735343933
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 2,
+          "distance": 0.31117820739746094
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 5,
+          "distance": 0.3434048891067505
+        }
+      ],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": "stop",
+      "time_seconds": 801.68,
+      "status": "success",
+      "passed": true,
+      "rating_note": "it detected fine that the documents do not provide an exact net profit after tax figure",
+      "retrieved_context": [
+        "NovaTech Solutions -- Quarterly\nBusiness Report\n\n\nQ1 2026 (January -- March)\n\n\nClassification: Internal -- Board & Leadership Distribution Only\n\nPrepared by: Office of the CFO | Approved by: Sarah Chen, CEO\n\nReport Date: April 14, 2026\n\n\n1. Executive Summary\n\n\nNovaTech Solutions delivered a strong first quarter in 2026, continuing the\ngrowth trajectory established in the second half of 2025. Annual Recurring\nRevenue (ARR) reached EUR 18.2 million at quarter-end, representing a 23%\nyear-over-year increase from EUR 14.8 million at the close of Q1 2025. Quarterly\nrecognized revenue came in at EUR 4.8 million, exceeding our internal forecast of\nEUR 4.6 million by approximately 4%.",
+        "2.4 Cash Position\n\nCash and cash equivalents at quarter-end stood at EUR 6.1M, down from EUR\n6.8M at the end of Q4 2025. The decrease reflects the Lisbon office investment\nand accelerated hiring. At the current burn rate, NovaTech maintains\napproximately 16 months of runway without additional revenue growth, though\nour trajectory suggests continued cash generation. No additional fundraising is\nplanned for 2026.\n\n\n3. Customer Metrics\n\n3.1 Customer Base Overview\n\n\n  Metric                                             Q1 2026           Q4 2025           Q1 2025\n\n  Total Customers                                   847                     821                     714\n\n  Enterprise Tier                                      52                       48                       39\n\n  Professional Tier                                   283                     271                     241\n\n  Starter Tier                                           512                     502                     434",
+        "6. People and Organization\n\n6.1 Headcount Summary\n\nNovaTech Solutions ended Q1 2026 with 412 full-time employees, up from 374 at\nthe end of Q4 2025. We hired 38 new team members during the quarter against\na target of 35.\n\n\n  Department                          Headcount (Q1 End)         Q1 Hires       % of Total\n\n  Engineering                               156                                       18                  37.9%\n\n  Product & Design                      34                                         4                    8.3%\n\n  Sales                                         62                                         6                    15.0%\n\n  Customer Success                     48                                         3                    11.7%\n\n  Marketing                                  29                                         2                    7.0%\n\n  General & Administrative          38                                         1                    9.2%",
+        "fiscal year 2025, NovaTech Solutions achieved annual recurring revenue of\napproximately €17 million.\n\nThis handbook outlines the policies, benefits, and expectations that apply to all\nNovaTech Solutions employees regardless of location or role. It supplements but\ndoes not replace your individual employment contract. In the event of a conflict\nbetween this handbook and your employment contract, the terms of the\nemployment contract shall prevail.\n\nPlease read this handbook carefully and direct any questions to your manager or\nto the Human Resources team at hr@novatech-solutions.com.\n\n\n2. Mission, Vision, and Values\n\nMission\n\nTo empower organizations with intelligent project management and analytics\ntools that turn complexity into clarity.\n\nVision\n\nBy 2030, NovaTech Solutions aims to be the leading European B2B SaaS provider\nfor integrated project intelligence, serving 10,000 enterprise customers\nworldwide.\n\nCore Values\n\n\n Value                       Description",
+        "Reports can be exported in PDF, XLSX, and CSV formats. On Enterprise tier,\nreports can also be exported via the API in JSON format for downstream\nprocessing.\n\n\n3. NovaTech Insight\n\n3.1 Overview\n\nNovaTech Insight is a business intelligence and analytics platform purpose-built\nfor operational data. Unlike general-purpose BI tools, Insight is optimized for\ntime-series operational data, project metrics, and process analytics. It connects\nnatively to NovaTech ProjectHub but also supports 45+ external data sources.\n\nInsight is used by over 1,100 organizations, processing an average of 2.3 billion\ndata points per day across all customers."
+      ],
+      "reconstructed_context_sources": [
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 1,
+          "distance": 0.24971383810043335
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 3,
+          "distance": 0.28298962116241455
+        },
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 8,
+          "distance": 0.2905861735343933
+        },
+        {
+          "source": "company_handbook.pdf",
+          "page": 2,
+          "distance": 0.31117820739746094
+        },
+        {
+          "source": "product_guide.pdf",
+          "page": 5,
+          "distance": 0.3434048891067505
+        }
+      ],
+      "retrieval_context_reconstructed": true
+    },
+    {
+      "id": "Q18",
+      "category": "unanswerable",
+      "answerable": false,
+      "question": "What is CEO Sarah Chen's personal mobile phone number?",
+      "expected_answer": "The provided documents do not contain CEO Sarah Chen's personal mobile phone number.",
+      "expected_sources": [],
+      "generated_answer": "I could not find sufficient relevant evidence in the provided documents to answer this question.",
+      "retrieved_sources": [],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": null,
+      "time_seconds": 3.03,
+      "status": "success",
+      "passed": true,
+      "rating_note": "It refuses to provide a personal mobile number that is not present in the documents.",
+      "retrieved_context": [],
+      "reconstructed_context_sources": [],
+      "retrieval_context_reconstructed": true
+    },
+    {
+      "id": "Q19",
+      "category": "unanswerable",
+      "answerable": false,
+      "question": "What is the exact annual base salary of a specific backend engineer employed in the Munich office?",
+      "expected_answer": "The provided documents do not state the exact annual base salary of an individual backend engineer in the Munich office. They contain some general staffing and cost information, but not this employee-specific salary.",
+      "expected_sources": [],
+      "generated_answer": "Based on the provided document evidence, there is insufficient information to determine the exact annual base salary of a specific backend engineer employed in the Munich office. The available text from quarterly_report_q1_2026.pdf on page 9 details the headcount and departmental presence for the Munich office but does not contain any compensation or salary data.",
+      "retrieved_sources": [
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 9,
+          "distance": 0.3048306703567505
+        }
+      ],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": "stop",
+      "time_seconds": 121.9,
+      "status": "success",
+      "passed": true,
+      "rating_note": "Correctly identifies that the documents do not disclose the specific employee's annual base salary and also didnt generated this random info as well",
+      "retrieved_context": [
+        "6.2 Headcount by Office Location\n\n\n Office                          Headcount     Departments Present\n\n Munich HQ                     298                  All departments\n\n Lisbon                            22                    Engineering (18), Product & Design (4)\n\n\n Austin                             68                    Sales (28), Customer Success (22), Marketing(18)\n\n\n Remote (DACH\n region)                           24                    Various\n\n\nThe Lisbon office opened on January 15, 2026, in the Parque das Nacoes business\ndistrict. Initial staffing focused on backend engineering and product design roles\nsupporting the Insight product line and the NovaTech Copilot initiative. The office\nhas capacity for up to 40 employees, and we plan to grow the Lisbon team to 35\nby year-end.\n\n6.3 Key Hires"
+      ],
+      "reconstructed_context_sources": [
+        {
+          "source": "quarterly_report_q1_2026.pdf",
+          "page": 9,
+          "distance": 0.3048306703567505
+        }
+      ],
+      "retrieval_context_reconstructed": true
+    },
+    {
+      "id": "Q20",
+      "category": "unanswerable",
+      "answerable": false,
+      "question": "What is the CEO's residential street address?",
+      "expected_answer": "The provided documents do not state the CEO's residential street address.",
+      "expected_sources": [],
+      "generated_answer": "I could not find sufficient relevant evidence in the provided documents to answer this question.",
+      "retrieved_sources": [],
+      "model": "qwen3.5:4b-q4_K_M",
+      "finish_reason": null,
+      "time_seconds": 2.27,
+      "status": "success",
+      "passed": true,
+      "rating_note": "It refuses to invent a residential address that is not present in the documents also not invented random info for that as well",
+      "retrieved_context": [],
+      "reconstructed_context_sources": [],
+      "retrieval_context_reconstructed": true
+    }
+  ]
+}

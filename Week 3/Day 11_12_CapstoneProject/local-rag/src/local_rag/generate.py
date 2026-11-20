@@ -1,3 +1,4 @@
+
 import time
 from openai import OpenAI
 
@@ -20,6 +21,7 @@ ollama_client = OpenAI(
     api_key=LLM_API_KEY,
 )
 
+
 def generate_answer(question: str) -> dict:
     """Generate an answer grounded in retrieved document evidence."""
 
@@ -27,11 +29,16 @@ def generate_answer(question: str) -> dict:
     chunks = retrieve(question)
     retrieval_time = time.perf_counter() - retrieval_start
 
+    # Handle questions where no relevant chunks were retrieved.
     if not chunks:
         return {
             "question": question,
-            "answer": "I could not find sufficient relevant evidence in the provided documents to answer this question.",
+            "answer": (
+                "I could not find sufficient relevant evidence "
+                "in the provided documents to answer this question."
+            ),
             "sources": [],
+            "retrieved_context": [],
             "model": GENERATION_MODEL,
             "finish_reason": None,
             "thinking": REASONING_EFFORT != "none",
@@ -41,6 +48,7 @@ def generate_answer(question: str) -> dict:
             "completion_tokens": None,
         }
 
+    # Build context from the retrieved document chunks.
     context_parts = []
 
     for index, chunk in enumerate(chunks, start=1):
@@ -83,6 +91,7 @@ USER QUESTION:
 Provide an answer grounded in the evidence.
 Include source document names and page numbers.
 """
+
     start_time = time.perf_counter()
 
     response = ollama_client.chat.completions.create(
@@ -93,9 +102,9 @@ Include source document names and page numbers.
         ],
         temperature=TEMPERATURE,
         reasoning_effort=REASONING_EFFORT,
-        **{TOKEN_LIMIT_PARAM: MAX_TOKENS}
-
+        **{TOKEN_LIMIT_PARAM: MAX_TOKENS},
     )
+
     generation_time = time.perf_counter() - start_time
 
     answer = response.choices[0].message.content
@@ -115,6 +124,10 @@ Include source document names and page numbers.
         "question": question,
         "answer": answer,
         "sources": sources,
+
+        # Actual retrieved text, required by DeepEval.
+        "retrieved_context": [chunk["text"] for chunk in chunks],
+
         "model": GENERATION_MODEL,
         "finish_reason": response.choices[0].finish_reason,
         "thinking": REASONING_EFFORT != "none",

@@ -1,0 +1,45 @@
+[
+    {
+        "id": "Q01",
+        "category": "direct_factual",
+        "answerable": true,
+        "question": "How many days of paid annual leave do full-time employees receive and how does this differ for part-time employees?",
+        "expected_answer": "Full-time employees receive 25 days of paid time off per calendar year in addition to public holidays observed at their office location. Part-time employees receive PTO on a pro-rata basis.",
+        "expected_sources": [
+            {
+                "file": "company_handbook.pdf",
+                "pages": [
+                    5
+                ]
+            }
+        ],
+        "actual_answer": "Full-time employees receive **25 days of paid annual leave (PTO) per calendar year**, in addition to public holidays. Part-time employees receive PTO **on a pro-rata basis**. (company_handbook.pdf, page 5)",
+        "retrieved_context": [
+            "Team Days\n\nEach team must designate at least one (1) mandatory in-office day per\nweek for collaborative work. These team days are set by the team lead and\ncommunicated at the start of each quarter.\n\n\n5. Leave and Time-Off Policy\n\nAnnual Leave (Paid Time Off)\n\nAll full-time employees receive twenty-five (25) days of paid time off (PTO) per\ncalendar year, in addition to public holidays observed at their respective office\nlocation. Part-time employees receive PTO on a pro-rata basis.\n\nPTO accrues monthly (2.083 days per month). Employees may use PTO before it\nhas fully accrued, subject to manager approval. The maximum negative PTO\nbalance permitted is five (5) days.\n\nCarryover: Unused PTO may be carried over to the following calendar year, up\nto a maximum of five (5) days. Carried-over days must be used by March 31\nof the following year. Any unused carried-over days beyond this date will be\nforfeited unless prohibited by local employment law.",
+            "PTO requests should be submitted via NovaHR at least two (2) weeks in\nadvance for absences of three (3) or more consecutive days, and at least three\n(3) business days in advance for shorter absences. Managers may decline\nrequests during critical business periods, provided reasonable alternative dates\nare offered.\n\nSick Leave\n\nEmployees are entitled to ten (10) paid sick days per calendar year. A medical\ncertificate is required for absences exceeding three (3) consecutive working\ndays. Sick days do not carry over between calendar years.\n\nIn Germany, statutory sick pay provisions apply after the company sick leave\nentitlement is exhausted. Employees in Portugal and the United States should\nrefer to the country-specific addendum for details on statutory sick leave\nprovisions."
+        ],
+        "generated_answer": "Full-time employees receive **25 days of paid annual leave (PTO) per calendar year**, in addition to public holidays. Part-time employees receive PTO **on a pro-rata basis**. (company_handbook.pdf, page 5)",
+        "retrieved_sources": [
+            {
+                "source": "company_handbook.pdf",
+                "page": 5,
+                "distance": 0.22802895307540894
+            },
+            {
+                "source": "company_handbook.pdf",
+                "page": 5,
+                "distance": 0.30409544706344604
+            }
+        ],
+        "model": "gpt-5.6-luna",
+        "thinking": false,
+        "finish_reason": "stop",
+        "time_seconds": 9.66,
+        "retrieval_time_seconds": 6.25,
+        "generation_time_seconds": 3.42,
+        "generation_time_ms": 3420.0,
+        "prompt_tokens": 603,
+        "completion_tokens": 51,
+        "status": "success"
+    }
+]

@@ -4,6 +4,7 @@
 # Python environments
 .venv/
 venv/
+.venv_broken_backup
 transformer-env/
 __pycache__/
 *.py[cod]
@@ -11,6 +12,9 @@ __pycache__/
 # Local RAG project
 chroma_db/
 *.gguf
+.deepeval
+_deepeval_packages
+_click_repair
 
 # Generated outputs and temporary files
 __pycache__/
